@@ -1,0 +1,480 @@
+<%= form_for(@pet) do |f| %>
+  <% if @pet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
+
+      <ul>
+      <% @pet.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_area :name %>
+  </div>
+  <div class="field">
+    <%= f.label :published %><br>
+    <%= f.check_box :published %>
+  </div>
+  <div class="field">
+    <%= f.label :birth_date %><br>
+    <%= f.datetime_select :birth_date %>
+  </div>
+  <div class="field">
+    <%= f.label :gender %><br>
+    <%= f.text_field :gender %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+        <div class="container">
+            <div class="row-fluid margin-bottom-10">
+                <form class="reg-page">
+                    <h3>Regístrate</h3>
+                    <h4 class="color-green">Mascota</h4>
+                    <label>Nombre <span class="color-red">*</span></label>
+                    <input type="text" class="span12" />
+
+                    <label>Clase de mascota <span class="color-red">*</span></label>
+                    <form>
+                        <select class="span6">
+                            <option>Perro</option>
+                            <option>Gato</option>
+                            <option>Hurón</option>
+                            <option>Ave</option>
+                            <option>Reptil</option>
+                        </select>
+
+                        <label>Por favor, elige la raza <span class="color-red">*</span></label>
+                        <form>
+                            <select class="span6">
+                                <option>--A--</option>
+                                <option>Affenpinscher </option>
+                                <option>Afgano </option>
+                                <option>Akita </option>
+                                <option>Akita Americano</option>
+                                <option>Alano Español </option>
+                                <option>American Bully </option>
+                                <option>American Foxhound</option>
+                                <option> American Pit Bull Terrier</option>
+                                <option>American Staffordshire </option>
+                                <option>Antiguo perro de muestra Danés </option>
+                                <option>Australian Silky Terrier </option>
+                                <option>Azawakh</option>
+                                <option>--B--</option>
+                                <option>Basset Hound</option>
+                                <option>Basset leonado de Bretaña</option>
+                                <option>Beagle</option>
+                                <option>Beagle-Harrier</option>
+                                <option>Bedlington Terrier</option>
+                                <option>Berger de Picardie</option>
+                                <option>Bichón Boloñés</option>
+                                <option>Bichón Frisé</option>
+                                <option>Bichón Habanero</option>
+                                <option>Billy</option>
+                                <option>Black And Tan Coonhound</option>
+                                <option>Bloodhound</option>
+                                <option>Bobtail</option>
+                                <option>Bodeguero Andaluz</option>
+                                <option>Border Collie</option>
+                                <option>Border Terrier</option>
+                                <option>Borzoi (galgo Ruso)</option>
+                                <option>Boston Terrier</option>
+                                <option>Bóxer</option>
+                                <option>Boyero Australiano</option>
+                                <option>Boyero de Flandes</option>
+                                <option>Boyero de las Ardenas</option>
+                                <option>Braco alemán de pelo corto</option>
+                                <option>Braco alemán de pelo duro</option>
+                                <option>Braco de Auvernia</option>
+                                <option>Braco de Weimar</option>
+                                <option>Braco del Ariège</option>
+                                <option>Braco del Bourbonnais</option>
+                                <option>Braco francés, tipo Gascuña, talla grande.</option>
+                                <option>Braco francés, tipo Pirineos talla pequeña</option>
+                                <option>Braco italiano</option>
+                                <option>Braco San Germain</option>
+                                <option>Briard</option>
+                                <option>Brittany</option>
+                                <option>Broholmer</option>
+                                <option>Buhund Noruego</option>
+                                <option>Bull Terrier</option>
+                                <option>Bull Terrier Miniatura</option>
+                                <option>Bulldog</option>
+                                <option>Bulldog americano</option>
+                                <option>Bulldog Francés</option>
+                                <option>Bullmastín</option>
+                                <option>--C--</option>
+                                <option>Cavalier King Charles</option>
+                                <option>Chihuahua</option>
+                                <option>Chin Japonés</option>
+                                <option>Chow Chow</option>
+                                <option>Cirneco Del Etna</option>
+                                <option>Clumber Spaniel</option>
+                                <option>Cobrador de Nueva Escocia</option>
+                                <option>Cocker Spaniel</option>
+                                <option>Cocker Americano</option>
+                                <option>Collie</option>
+                                <option>Collie Barbudo</option>
+                                <option>Collie Smooth </option>
+                                <option>Corgi Galés Cárdigan</option>
+                                <option>Corgi Galés Pembroke</option>
+                                <option>Cotón de Tuléar</option>
+                                <option>Curly Coated Retriever (de pelo rizado)</option>
+                                <option>--D--</option>
+                                <option>Dálmata</option>
+                                <option>Dandie Dinmont Terrier</option>
+                                <option>Deerhound Escocés</option>
+                                <option>Doberman</option>
+                                <option>Dogo Argentino</option>
+                                <option>Dogo Canario</option>
+                                <option>Dogo de Burdeos</option>
+                                <option>Dogo Mallorquín</option>
+                                <option>Drever</option>
+                                <option>--E--</option>
+                                <option>Elkhound Noruego</option>
+                                <option>Epagneul breton</option>
+                                <option>Eurasier</option>
+                                <option>--F--</option>
+                                <option>Faraón Hound</option>
+                                <option>Field Spaniel</option>
+                                <option>Fila Brasileiro</option>
+                                <option>Fila de San Miguel</option>
+                                <option>Fox Terrier Pelo Duro</option>
+                                <option>Fox Terrier de Pelo Liso</option>
+                                <option>Fox Terrier Toy</option>
+                                <option>Foxhound Americano</option>
+                                <option>Foxhound Inglés</option>
+                                <option>--G--</option>
+                                <option>Galgo Español</option>
+                                <option>Galgo Italiano</option>
+                                <option>Gascon Saintongeois</option>
+                                <option>Glen Of Imaal Terrier</option>
+                                <option>Golden Retriever</option>
+                                <option>Gran Basset Grifón vendeano</option>
+                                <option>Gran Danés</option>
+                                <option>Greyhound</option>
+                                <option>Grifon Belga</option>
+                                <option>Grifón de Bruselas</option>
+                                <option>Grifón de muestra bohemio de pelo duro</option>
+                                <option>Grifon de muestra eslovaco de pelo duro</option>
+                                <option>Grifón de muestra Korthals de pelo duro</option>
+                                <option>--H--</option>
+                                <option>Hamilton Stovare</option>
+                                <option>Harrier</option>
+                                <option>Hokkaïdo </option>
+                                <option>Hovawart</option>
+                                <option>Husky Siberiano</option>
+                                <option>--I--</option>
+                                <option>Irish Soft Coated Wheaten Terrier</option>
+                                <option>--J--</option>
+                                <option>Jack Russell Terrier</option>
+                                <option>Jamthund</option>
+                                <option>--K--</option>
+                                <option>Kai</option>
+                                <option>Karjalankarhukoira </option>
+                                <option>Keeshond</option>
+                                <option>Kerry Blue Terrier</option>
+                                <option>Kishu</option>
+                                <option>Komondor</option>
+                                <option>Korea Jinco Dog</option>
+                                <option>Kromfohrländer</option>
+                                <option>Kuvasz</option>
+                                <option>--L--</option>
+                                <option>Labrador Retriever</option>
+                                <option>Laïka de Siberia oriental</option>
+                                <option>Laïka Ruso-Europeo</option>
+                                <option>Lakeland Terrier</option>
+                                <option>Landseer</option>
+                                <option>Lebrel Húngaro</option>
+                                <option>Leonberger</option>
+                                <option>Lhasa Apso</option>
+                                <option>Lundehund noruego</option>
+                                <option>Löwchen</option>
+                                <option>--M--</option>
+                                <option>Malamute de Alaska</option>
+                                <option>Maltés</option>
+                                <option>Mastín</option>
+                                <option>Mastín Napolitano</option>
+                                <option>Mastín Tibetano</option>
+                                <option>Mudi </option>
+                                <option>Münsterländer grande</option>
+                                <option>Münsterländer pequeño</option>
+                                <option>--O--</option>
+                                <option>Otterhound</option>
+                                <option>--P--</option>
+                                <option>Papillon</option>
+                                <option>Parson Russell Terrier</option>
+                                <option>Pastor Alemán</option>
+                                <option>Pastor Australiano</option>
+                                <option>Pastor Belga</option>
+                                <option>Pastor Blanco Suizo</option>
+                                <option>Pastor Catalán</option>
+                                <option>Pastor de Anatolia</option>
+                                <option>Pastor de Beauce</option>
+                                <option>Pastor de Los Pirineos</option>
+                                <option>Pastor de Shetland</option>
+                                <option>Pastor Polaco de Tierras Bajas</option>
+                                <option>Pequeño Basset Grifón vendeano</option>
+                                <option>Pequeño Brabanzón</option>
+                                <option>Pequeño perro holandés para la caza acuática</option>
+                                <option>Pequinés</option>
+                                <option>Perdiguero de Burgos</option>
+                                <option>Perdiguero de Drente</option>
+                                <option>Perdiguero portugués</option>
+                                <option>Entlebucher</option>
+                                <option>Perro Crestado Chino</option>
+                                <option>Perro de Agua Americano</option>
+                                <option>Perro De Agua Español</option>
+                                <option>Perro de Aguas Portugués</option>
+                                <option>Perro de Canaan</option>
+                                <option>Perro de Castro Laboreiro</option>
+                                <option>Perro de Groenlandia</option>
+                                <option>Perro de Montaña Appenzell</option>
+                                <option>Perro de Montaña Bernés</option>
+                                <option>Perro de Montaña de la Sierra de la Estrela</option>
+                                <option>Perro de Montaña de Los Pirineos</option>
+                                <option>Perro de Montaña del Atlas</option>
+                                <option>Perro de Montaña Gran Suizo</option>
+                                <option>Perro de muestra alemán de pelo cerdoso</option>
+                                <option>Perro de pastor bergamasco</option>
+                                <option>Perro de pastor de Asia Central</option>
+                                <option>Perro de pastor de Karst</option>
+                                <option>Perro de pastor de Rusia Meridional</option>
+                                <option>Perro de pastor del Cáucaso</option>
+                                <option>Perro de Pastor islandés</option>
+                                <option>Perro de pastor polaco de las Llanuras</option>
+                                <option>Perro de pastor polaco de Podhale</option>
+                                <option>Perro de pastor portugués</option>
+                                <option>Perro de Pastor yugoslavo de Charplanina</option>
+                                <option>Perro Esquimal Americano</option>
+                                <option>Perro Esquimal Canadiense</option>
+                                <option>Perro Lobo Checoslavaco</option>
+                                <option>Perro lobo de Sarloos</option>
+                                <option>Perro Pastor Croato</option>
+                                <option>Perro Pastor Mallorquín</option>
+                                <option>Perro pastor Maremmano-Abruzzese</option>
+                                <option>Perro sin Pelo del Perú</option>
+                                <option>Perro Smous holandés</option>
+                                <option>Pinscher</option>
+                                <option>Pinscher austriaco</option>
+                                <option>Pinscher Miniatura</option>
+                                <option>Plott Hound</option>
+                                <option>Podenco Canario</option>
+                                <option>Podenco Ibicenco</option>
+                                <option>Podenco Portugués</option>
+                                <option>Pointer</option>
+                                <option>Pointer Alemán de Pelo Corto</option>
+                                <option>Pointer Alemán de Pelo Duro</option>
+                                <option>Poitevin</option>
+                                <option>Pomerania</option>
+                                <option>Porcelaine</option>
+                                <option>Pudelpointer</option>
+                                <option>Puli</option>
+                                <option>Pumi</option>
+                                <option>--R--</option>
+                                <option>Rafeiro del Alentejo</option>
+                                <option>Rastreador de Hannover</option>
+                                <option>Rastreador montañes de Baviera</option>
+                                <option>Retriever de La Bahía de Chesapeake</option>
+                                <option>Retriever de Pelo Liso</option>
+                                <option>Ridgeback de Rodesia</option>
+                                <option>Rottweiler</option>
+                                <option>--S--</option>
+                                <option>Sabueso alemán</option>
+                                <option>Sabueso Artesiano</option>
+                                <option>Sabueso austriaco negro y fuego</option>
+                                <option>Sabueso de Bosnia de pelo cerdoso</option>
+                                <option>Sabueso de Hygen</option>
+                                <option>Sabueso de las Montañas de Montenegro</option>
+                                <option>Sabueso de Smaland</option>
+                                <option>Sabueso de Transilvania</option>
+                                <option>Sabueso del Tirol</option>
+                                <option>Sabueso eslovaco</option>
+                                <option>Sabueso español</option>
+                                <option>Sabueso Estirio de pelo duro</option>
+                                <option>Sabueso finlandes</option>
+                                <option>Sabueso francés tricolor</option>
+                                <option>Sabueso Halden</option>
+                                <option>Sabueso Italiano (de pelo corto)</option>
+                                <option>Sabueso Italiano (de pelo duro)</option>
+                                <option>Sabueso noruego</option>
+                                <option>Sabueso polaco</option>
+                                <option>Sabueso Schiller</option>
+                                <option>Sabueso serbio</option>
+                                <option>Sabueso suizo</option>
+                                <option>Sabueso tricolor serbio</option>
+                                <option>Saluki (galgo Persa)</option>
+                                <option>Samoyedo</option>
+                                <option>San Bernardo</option>
+                                <option>Schapendoes neerlandés</option>
+                                <option>Schipperke</option>
+                                <option>Schnauzer</option>
+                                <option>Schnauzer Gigante</option>
+                                <option>Schnauzer Miniatura</option>
+                                <option>Sealyham Terrier</option>
+                                <option>Setter Gordon</option>
+                                <option>Setter Inglés</option>
+                                <option>Setter Irlandés</option>
+                                <option>Setter irlandés rojo</option>
+                                <option>Setter irlandés rojo y blanco</option>
+                                <option>Shar Pei</option>
+                                <option>Shiba</option>
+                                <option>ShihTzu</option>
+                                <option>Shikoku</option>
+                                <option>Silky Terrier</option>
+                                <option>Sloughi (galgo árabe)</option>
+                                <option>Spaniel continental enano</option>
+                                <option>Spaniel de Agua Irlandés</option>
+                                <option>Spaniel de Pont-Audemer</option>
+                                <option>Spaniel de Sussex</option>
+                                <option>Spaniel Picardo</option>
+                                <option>Spaniel Tibetano</option>
+                                <option>Spinone Italiano</option>
+                                <option>Spitz Alemán</option>
+                                <option>Spitz Finlandés</option>
+                                <option>Spitz Japonés</option>
+                                <option>Springer Spaniel Galés</option>
+                                <option>Springer Spaniel Inglés</option>
+                                <option>Sptiz de Norrbotten</option>
+                                <option>Stabyhoun</option>
+                                <option>Staffordshire Bull Terrier</option>
+                                <option>--T--</option>
+                                <option>Tchuvatch eslovaco</option>
+                                <option>Teckel</option>
+                                <option>Tejonero alpino</option>
+                                <option>Tejonero de Westfalia</option>
+                                <option>Terranova</option>
+                                <option>Terrier Australiano</option>
+                                <option>Terrier Brasileño</option>
+                                <option>Terrier cazador alemán</option>
+                                <option>Terrier Cesky</option>
+                                <option>Terrier de Airedale</option>
+                                <option>Terrier de Norfolk</option>
+                                <option>Terrier de Norwich</option>
+                                <option>Terrier de Skye</option>
+                                <option>Terrier Escocés</option>
+                                <option>Terrier Galés</option>
+                                <option>Terrier Irlandés</option>
+                                <option>Terrier japonés</option>
+                                <option>Terrier Tibetano</option>
+                                <option>Thai Ridgeback Dog </option>
+                                <option>Tosa Inu</option>
+                                <option>--V--</option>
+                                <option>Valhund Sueco</option>
+                                <option>Vizsla</option>
+                                <option>Volpino Italiano</option>
+                                <option>--W--</option>
+                                <option>West Highland</option>
+                                <option>Wetterhound</option>
+                                <option>Wheaten Terrier</option>
+                                <option>Whippet</option>
+                                <option>Wolfhound Irlandés</option>
+                                <option>--X--</option>
+                                <option>xoloitzcuintle</option>
+                                <option>--Y--</option>
+                                <option>Yorkshire terrier</option>
+
+                            </select>
+                            <label>Por favor, elige la raza <span class="color-red">*</span></label>
+                            <form>
+                                <select class="span6">
+                                    <option>--A--</option>
+                                    <option>Abisinio</option>
+                                    <option>American Curl</option>
+                                    <option>Angora Turco</option>
+                                    <option>Azul Ruso</option>
+                                    <option>--B--</option>
+                                    <option>Balinés</option>
+                                    <option>Bengalí</option>
+                                    <option>Bombay</option>
+                                    <option>Bosque de Noruega</option>
+                                    <option>Británico de pelo corto</option>
+                                    <option>Británico de Pelo Corto Azul</option>
+                                    <option>Británico de pelo largo</option>
+                                    <option>Burmés</option>
+                                    <option>Burmilla</option>
+                                    <option>--C--</option>
+                                    <option>Cartujo</option>
+                                    <option>Cornish Rex</option>
+                                    <option>--D--</option>
+                                    <option>Devon Rex</option>
+                                    <option>--E--</option>
+                                    <option>Europeo de Pelo Corto</option>
+                                    <option>Exótico de pelo corto</option>
+                                    <option>--G--</option>
+                                    <option>German Rex</option>
+                                    <option>--H--</option>
+                                    <option>Highland Fold</option>
+                                    <option>Himalayo</option>
+                                    <option>--J--</option>
+                                    <option>Javanés</option>
+                                    <option>--K--</option>
+                                    <option>Korat</option>
+                                    <option>--M--</option>
+                                    <option>Maine Coon</option>
+                                    <option>Manx</option>
+                                    <option>Mau Egipcio</option>
+                                    <option>--N--</option>
+                                    <option>Neva Masquerade</option>
+                                    <option>--O--</option>
+                                    <option>Ocicat</option>
+                                    <option>Oriental de Pelo Corto</option>
+                                    <option>--P--</option>
+                                    <option>Persa</option>
+                                    <option>Peterbald</option>
+                                    <option>--R--</option>
+                                    <option>Ragdoll</option>
+                                    <option>--S--</option>
+                                    <option>Sagrado de Birmania</option>
+                                    <option>Scottish Fold</option>
+                                    <option>Selkirk Rex</option>
+                                    <option>Siamés</option>
+                                    <option>Siberiano</option>
+                                    <option>Snowshoe</option>
+                                    <option>Somalí</option>
+                                    <option>Sphynx</option>
+                                    <option>--T--</option>
+                                    <option>Toyger</option>
+                                    <option>--V--</option>
+                                    <option>Van Turco</option>
+                                </select>
+                                <form>
+                                    <label>Breve descripción de tu mascota <span class="color-red">*</span></label>
+                                    <input type="text" class="span12" />
+
+                                    <label>Fecha de nacimiento<span class="color-red">*</span></label>
+                                    <input type="text" class="span12" />
+
+                                    <label class="checkbox">
+                                        <input type="checkbox" value="">
+                                        Macho
+                                    </label>
+
+                                    <label class="checkbox">
+                                        <input type="checkbox" value="">
+                                        Hembra
+                                    </label>
+
+                                    <label>Datos adicionales </span></label>
+                                    <input type="text" class="span12" placeholder="Concursos, pedigree, adiestrado..." />
+
+                                    <p>
+                                        Sube una imagen de perfil
+                                        <br>
+                                        <button class="btn btn-mini btn-primary" type="button">Buscar</button>
+                                    </p>
+                                    <div class="controls form-inline">
+                                        <label class="checkbox"><input type="checkbox" />&nbsp; He leído los <a href="">Términos y Condiciones</a></label>
+                                        <button class="btn-u pull-right" type="submit">Registrarse</button>
+                                    </div>
+                                    <hr />
+                                    <p>¿Ya estás registrado? Haz clic <a href="page_login.html" class="color-green">aquí</a> para ingresar a tu cuenta.</p>
+                                </form>
+            </div><!--/row-fluid-->
+        </div><!--/container-->
