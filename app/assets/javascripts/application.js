@@ -13,4 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require modernizr.custom.js
+//= require plugins/bootstrap/js/bootstrap.min.js
+//= require plugins/back-to-top.js
+//= require app
+//= require global
 //= require_tree .
