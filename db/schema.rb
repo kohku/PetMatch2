@@ -11,15 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150901145114) do
+ActiveRecord::Schema.define(version: 20150903213951) do
 
-  create_table "pets", force: :cascade do |t|
-    t.text     "name",       limit: 2147483647
+  create_table "pet_breeds", force: :cascade do |t|
+    t.string   "name",       limit: 4000
     t.boolean  "published"
-    t.datetime "birth_date"
-    t.string   "gender",     limit: 4000
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
+  create_table "pet_types", force: :cascade do |t|
+    t.string   "name",       limit: 4000
+    t.boolean  "published"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "pets", force: :cascade do |t|
+    t.text     "name",         limit: 2147483647
+    t.boolean  "published"
+    t.datetime "birth_date"
+    t.string   "gender",       limit: 4000
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.integer  "pet_type_id",  limit: 4
+    t.integer  "pet_breed_id", limit: 4
+  end
+
+  add_index "pets", ["pet_breed_id"], name: "index_pets_on_pet_breed_id"
+  add_index "pets", ["pet_type_id"], name: "index_pets_on_pet_type_id"
+
+  add_foreign_key "pets", "pet_breeds"
+  add_foreign_key "pets", "pet_types"
 end

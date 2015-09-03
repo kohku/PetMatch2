@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Pet Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Published</th>
+      <th>Birth date</th>
+      <th>Gender</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pet_types.each do |pet_type| %>
+      <tr>
+        <td><%= pet_type.name %></td>
+        <td><%= pet_type.published %></td>
+        <td><%= pet_type.birth_date %></td>
+        <td><%= pet_type.gender %></td>
+        <td><%= link_to 'Show', pet_type %></td>
+        <td><%= link_to 'Edit', edit_pet_type_path(pet_type) %></td>
+        <td><%= link_to 'Destroy', pet_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pet Type', new_pet_type_path %>

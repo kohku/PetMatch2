@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   resources :pets
+
+  resources "pet-types", :controller => :pet_types, :as => :pet_types
+
+  resources "pet-breeds", :controller => :pet_breeds, :as => :pet_breeds
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
