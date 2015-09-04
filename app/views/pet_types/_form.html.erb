@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row-fluid margin-bottom-10">
+    <%= form_for @pet_type, html: {class: 'reg-page'} do |f| %>
+
+    	<h4 class="color-green">Details</h4>
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'span12' %>
+
+        <label class="checkbox">
+        	<%= f.check_box :published %>
+        	Publish
+    	</label>
+
+        <%= f.submit value: "Create", class: 'btn-u pull-right' %>
+    <% end %>
+	</div>
+</div>
