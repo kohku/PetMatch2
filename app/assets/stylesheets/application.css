@@ -13,7 +13,8 @@
  *= require style.css
  *= require headers/header1.css
  *= require plugins/bootstrap/bootstrap-responsive.min
+ *= require plugins/font-awesome/css/font-awesome.min
  *= require style_responsive
  *= require themes/default
- *= require_self
+ *= require custom
  */

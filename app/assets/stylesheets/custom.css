@@ -1,0 +1,15 @@
+
+.custom_panel
+{
+	margin-right: 0;
+	margin-left: 0;
+	border: solid 1px #ddd;
+	padding: 30px 50px;
+}
+
+span.btn a, span.btn a:hover, span.btn a:visited, span.btn a:active {
+	color: #fff;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	margin-left: 1em;
+	padding: 0;
+}

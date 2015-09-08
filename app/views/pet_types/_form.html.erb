@@ -2,6 +2,17 @@
     <div class="row-fluid margin-bottom-10">
     <%= form_for @pet_type, html: {class: 'reg-page'} do |f| %>
 
+        <% if @pet_type.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@pet_type.errors.count, "error") %> prohibited this pet type from being saved:</h2>
+          <ul>
+          <% @pet_type.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+        <% end %>
+
     	<h4 class="color-green">Details</h4>
         <%= f.label :name %>
         <%= f.text_field :name, class: 'span12' %>

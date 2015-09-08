@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row-fluid margin-bottom-10">
+    	<p id="notice"><%= notice %></p>
+    	<p>
+		  <strong>Name:</strong>
+		  <%= @pet_type.name %>
+		</p>
+
+		<p>
+		  <strong>Published:</strong>
+		  <%= @pet_type.published %>
+		</p>
+
+		<p>
+		  <strong>Created at:</strong>
+		  <%= @pet_type.created_at %>
+		</p>
+
+		<p>
+		  <strong>Last update:</strong>
+		  <%= @pet_type.updated_at %>
+		</p>
+    	<%= link_to 'Back', pet_types_path %>
+    </div>
+</div>

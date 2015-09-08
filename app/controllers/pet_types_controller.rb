@@ -7,9 +7,18 @@ class PetTypesController < ApplicationController
     @pet_types = PetType.all
   end
 
+   # GET /pet-types/1
+  # GET /pet-types/1.json
+  def show
+  end
+
   # GET /pet-types/new
   def new
     @pet_type = PetType.new
+  end
+
+  # GET /pets/1/edit
+  def edit
   end
 
   # POST /pets
@@ -20,11 +29,35 @@ class PetTypesController < ApplicationController
     respond_to do |format|
       if @pet_type.save
         format.html { redirect_to @pet_type, notice: 'Pet type was successfully created.' }
-        format.json { render :show, status: :created, location: @pet }
+        format.json { render :show, status: :created, location: @pet_type }
       else
         format.html { render :new }
         format.json { render json: @pet_type.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  # PATCH/PUT /pet-types/1
+  # PATCH/PUT /pet-types/1.json
+  def update
+    respond_to do |format|
+      if @pet_type.update(pet_params)
+        format.html { redirect_to @pet_type, notice: 'Pet was successfully updated.' }
+        format.json { render :show, status: :ok, location: @pet_type }
+      else
+        format.html { render :edit }
+        format.json { render json: @pet_type.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /pet-types/1
+  # DELETE /pet-types/1.json
+  def destroy
+    @pet_type.destroy
+    respond_to do |format|
+      format.html { redirect_to pets_url, notice: 'Pet was successfully destroyed.' }
+      format.json { head :no_content }
     end
   end
 
