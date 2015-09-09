@@ -1,25 +1,51 @@
 <div class="container">
-    <div class="row-fluid margin-bottom-10">
+    <div class="row-fluid">
+    	<h3><%= @pet_type.name  %></h3>
     	<p id="notice"><%= notice %></p>
-    	<p>
-		  <strong>Name:</strong>
-		  <%= @pet_type.name %>
-		</p>
-
-		<p>
-		  <strong>Published:</strong>
-		  <%= @pet_type.published %>
-		</p>
-
-		<p>
-		  <strong>Created at:</strong>
-		  <%= @pet_type.created_at %>
-		</p>
-
-		<p>
-		  <strong>Last update:</strong>
-		  <%= @pet_type.updated_at %>
-		</p>
-    	<%= link_to 'Back', pet_types_path %>
+    	<div class='dl-horizontal reg-page margin-bottom-10'>
+		    <label>Published:&nbsp;
+			    <% if @pet_type.published %>
+	              <i class="icon-ok"></i>
+	            <% end %>
+        	</label>
+		    <label>Created:&nbsp;<%= @pet_type.created_at %></label>
+		    <label>Last update:&nbsp;<%= @pet_type.updated_at %></label>
+		</div>
+		<h3>Breeds</h3>
+		<div class="custom_panel margin-bottom-10">
+			<p id="notice" class="text-info"><%= notice %></p>
+			<table class="table table-striped">
+			    <thead>
+			      <tr>
+			        <th>Name</th>
+			        <th>Published</th>
+			        <th></th>
+			      </tr>
+			    </thead>
+			    <tbody>
+			    <% @pet_type.pet_breeds.each do |pet_breed| %>
+			      <tr>
+			        <td><%= pet_breed.name %></td>
+			        <td>
+			            <% if pet_breed.published %>
+			              <i class="icon-ok"></i>
+			            <% end %>
+			        </td>
+			        <td>
+			          <a href="<%= url_for pet_breed_path(pet_breed) %>" class="btn btn-default btn-small">
+			            <i class="icon-pencil"></i>Show
+			          </a>
+			          <a href="<%= url_for edit_pet_breed_path(pet_breed) %>" class="btn btn-default btn-small">
+			            <i class="icon-pencil"></i>Edit
+			          </a>
+			          <%= link_to pet_breed, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-small" do %><i class="icon-remove"></i>Destroy
+			          <% end %>
+			        </td>
+			      </tr>
+			    <% end %>
+			    </tbody>
+			</table>
+		</div>
+    	<%= link_to 'Back', pet_types_path, :class => 'btn btn-default btn-small' %>
     </div>
 </div>

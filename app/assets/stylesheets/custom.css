@@ -7,9 +7,6 @@
 	padding: 30px 50px;
 }
 
-span.btn a, span.btn a:hover, span.btn a:visited, span.btn a:active {
-	color: #fff;
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-	margin-left: 1em;
-	padding: 0;
+a [class^="icon-"], a:hover [class^="icon-"], a:visited [class^="icon-"], a:active [class^="icon-"] {
+	margin-right: .3em;
 }

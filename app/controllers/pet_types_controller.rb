@@ -28,7 +28,7 @@ class PetTypesController < ApplicationController
 
     respond_to do |format|
       if @pet_type.save
-        format.html { redirect_to @pet_type, notice: 'Pet type was successfully created.' }
+        format.html { redirect_to pet_types_path, notice: 'Pet type was successfully created.' }
         format.json { render :show, status: :created, location: @pet_type }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class PetTypesController < ApplicationController
   def update
     respond_to do |format|
       if @pet_type.update(pet_params)
-        format.html { redirect_to @pet_type, notice: 'Pet was successfully updated.' }
+        format.html { redirect_to pet_types_path, notice: 'Pet was successfully updated.' }
         format.json { render :show, status: :ok, location: @pet_type }
       else
         format.html { render :edit }

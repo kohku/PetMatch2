@@ -1,8 +1,8 @@
 <div class="container">
     <div class="row-fluid">
-      <p id="notice"><%= notice %></p>
+      <h3> Pet Types</h3>
       <div class="custom_panel margin-bottom-10">
-        <h3> Pet Types</h3>
+        <p id="notice" class="text-info"><%= notice %></p>
         <table class="table table-striped">
             <thead>
               <tr>
@@ -15,20 +15,26 @@
             <% @pet_types.each do |pet_type| %>
               <tr>
                 <td><%= pet_type.name %></td>
-                <td><%= pet_type.published %></td>
                 <td>
-                  <span class="btn btn-mini btn-primary">
-                    <i class="icon-edit"><%= link_to 'Edit', edit_pet_type_path(pet_type) %></i>
-                  </span>
-                  <span class="btn btn-mini btn-primary">
-                    <i class="icon-remove"><%= link_to 'Destroy', pet_type, method: :delete, data: { confirm: 'Are you sure?' } %></i>
-                  </span>
+                    <% if pet_type.published %>
+                      <i class="icon-ok"></i>
+                    <% end %>
+                </td>
+                <td>
+                  <a href="<%= url_for pet_type_path(pet_type) %>" class="btn btn-default btn-small">
+                    <i class="icon-pencil"></i>Show
+                  </a>
+                  <a href="<%= url_for edit_pet_type_path(pet_type) %>" class="btn btn-default btn-small">
+                    <i class="icon-pencil"></i>Edit
+                  </a>
+                  <%= link_to pet_type, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-small" do %><i class="icon-remove"></i>Destroy
+                  <% end %>
                 </td>
               </tr>
             <% end %>
             </tbody>
         </table>
       </div>
-    <%= link_to 'New Pet Type', new_pet_type_path, :class => "btn-u btn-u-small" %>
+    <%= link_to 'New Pet Type', new_pet_type_path, :class => 'btn btn-default btn-small' %>
   </div>
 </div>
