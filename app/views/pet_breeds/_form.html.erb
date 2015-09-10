@@ -1,0 +1,24 @@
+<%= form_for(@path, html: {class: 'reg-page margin-bottom-10'}) do |f| %>
+
+    <% if @pet_breed.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pet_breed.errors.count, "error") %> prohibited this pet type from being saved:</h2>
+      <ul>
+      <% @pet_breed.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+    <% end %>
+
+	<h4 class="color-green">Details</h4>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'span12' %>
+
+    <label class="checkbox">
+    	<%= f.check_box :published %>
+    	Publish
+	</label>
+
+    <%= f.submit class: 'btn btn-default btn-small pull-right' %>
+<% end %>

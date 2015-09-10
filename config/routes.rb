@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   resources :pets
 
-  resources "pet-types", :controller => :pet_types, :as => :pet_types do
+  resources "pet-types", :controller => :pet_types, :as => :pet_types, shallow: true do
 
+    # Shallow nesting. Generate colleciton actions scoped under the parent.
     resources "pet-breeds", :controller => :pet_breeds, :as => :pet_breeds
   end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row-fluid">
+    	<h3><%= [@pet_breed.pet_type.name, @pet_breed.name].join(' ')  %></h3>
+    	<p id="notice"><%= notice %></p>
+    	<div class='dl-horizontal reg-page margin-bottom-10'>
+		    <label>Published:&nbsp;
+			    <% if @pet_breed.published %>
+	              <i class="icon-ok"></i>
+	            <% end %>
+        	</label>
+		    <label>Created:&nbsp;<%= @pet_breed.created_at %></label>
+		    <label>Last update:&nbsp;<%= @pet_breed.updated_at %></label>
+		</div>
+    	<%= link_to 'Back', pet_type_path(@pet_breed.pet_type), :class => 'btn btn-default btn-small' %>
+    </div>
+</div>

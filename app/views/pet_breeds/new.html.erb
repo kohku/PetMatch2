@@ -1,0 +1,9 @@
+<div class="container">
+    <div class="row-fluid">
+    	<h3>New <%= @pet_breed.pet_type.name %> Breed</h3>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', pet_type_path(@pet_breed.pet_type), :class => 'btn btn-default btn-small' %>
+	</div>
+</div>

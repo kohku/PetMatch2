@@ -18,8 +18,6 @@
       <tr>
         <td><%= pet_breed.name %></td>
         <td><%= pet_breed.published %></td>
-        <td><%= pet_breed.birth_date %></td>
-        <td><%= pet_breed.gender %></td>
         <td><%= link_to 'Show', pet_breed %></td>
         <td><%= link_to 'Edit', edit_pet_breed_path(pet_breed) %></td>
         <td><%= link_to 'Destroy', pet_breed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -30,4 +28,3 @@
 
 <br>
 
-<%= link_to 'New Pet Type', new_pet_breed_path %>
