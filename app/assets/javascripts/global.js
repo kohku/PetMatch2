@@ -18,6 +18,29 @@ PETMATCH = {
 		new: function(){
 			// action-specific code
 			console.log("Page-specific JavaScript on the pets/home page.");
+
+			$('#pet_types').on('change', function(){
+				pet_type_id = $(this).val();
+				if (pet_type_id == undefined || pet_type_id == ""){
+					$('#pet_breeds').empty().append('<option value="">Select one...</option>');
+					return;
+				}
+				$.ajax({
+					url: '/pet-types/{0}/pet-breeds.json'.format(pet_type_id),
+					method: 'GET',
+					dataType: 'json',
+					beforeSend: function(data){
+						$('#pet_breeds').empty().append('<option value="">Loading...</option>');
+					}
+				}).done(function(data){
+					$('#pet_breeds').empty();
+						data.forEach(function(entry){
+							$('#pet_breeds').append('<option value="{0}">{1}</option>'.format(entry.id, entry.name));
+						});
+				}).fail(function(){
+					$('#pet_breeds').empty().append('<option value="">Loading failed.</option>');
+				});
+			});
 		}
 	}
 };

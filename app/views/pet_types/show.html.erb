@@ -14,6 +14,7 @@
 		<h3>Breeds</h3>
 		<div class="custom_panel margin-bottom-10">
 			<p id="notice" class="text-info"><%= notice %></p>
+			<% if @pet_breeds.count > 0 %>
 			<table class="table table-striped">
 			    <thead>
 			      <tr>
@@ -23,7 +24,7 @@
 			      </tr>
 			    </thead>
 			    <tbody>
-			    <% @pet_type.pet_breeds.each do |pet_breed| %>
+			    <% @pet_breeds.each do |pet_breed| %>
 			      <tr>
 			        <td><%= pet_breed.name %></td>
 			        <td>
@@ -45,6 +46,13 @@
 			    <% end %>
 			    </tbody>
 			</table>
+			<%= will_paginate @pet_breeds, renderer: BootstrapPagination::Rails %>
+			<%= label_tag :per_page, 'Items per page' %>
+			<%= select_tag :per_page, options_for_select([5, 10, 20, 50], params[:per_page].to_i),
+				:onchange => "if(this.value){window.location='?per_page='+this.value;}" %>
+			<% else %>
+				<p class="text-info">There are no breeds for this pet type.</p>
+			<%end %>
 		</div>
 		<%= link_to 'New breed', new_pet_type_pet_breed_path(@pet_type), :class => 'btn btn-default btn-small' %>
     	<%= link_to 'Back', pet_types_path, :class => 'btn btn-default btn-small' %>

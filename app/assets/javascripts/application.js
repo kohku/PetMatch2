@@ -16,6 +16,7 @@
 //= require modernizr.custom
 //= require plugins/bootstrap/js/bootstrap.min
 //= require plugins/back-to-top
+//= require utils
 //= require app
 //= require global
 //= require_tree .

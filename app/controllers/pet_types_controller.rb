@@ -10,6 +10,8 @@ class PetTypesController < ApplicationController
    # GET /pet-types/1
   # GET /pet-types/1.json
   def show
+    @per_page = params[:per_page] || PetBreed.per_page || 10
+    @pet_breeds = @pet_type.pet_breeds.order('name ASC').paginate(per_page: @per_page, :page => params[:page])
   end
 
   # GET /pet-types/new

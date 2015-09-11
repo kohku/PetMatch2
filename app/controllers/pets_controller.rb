@@ -15,6 +15,7 @@ class PetsController < ApplicationController
   # GET /pets/new
   def new
     @pet = Pet.new
+    @pet_types = PetType.select { | match | match.published }
   end
 
   # GET /pets/1/edit

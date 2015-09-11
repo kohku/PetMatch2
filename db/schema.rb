@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150909223944) do
+ActiveRecord::Schema.define(version: 20150911165749) do
 
   create_table "pet_breeds", force: :cascade do |t|
     t.string   "name",        limit: 4000
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 20150909223944) do
     t.datetime "updated_at",                      null: false
     t.integer  "pet_type_id",  limit: 4
     t.integer  "pet_breed_id", limit: 4
+    t.text     "description",  limit: 2147483647
+    t.text     "notes",        limit: 2147483647
   end
 
   add_index "pets", ["pet_breed_id"], name: "index_pets_on_pet_breed_id"

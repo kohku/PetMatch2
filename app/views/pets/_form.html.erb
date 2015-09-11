@@ -12,22 +12,18 @@
         </div>
       <% end %>
 
-        <h3>Regístrate</h3>
-        <h4 class="color-green">Mascota</h4>
-        <%= f.label :name %>
+        <h3>Registration</h3>
+        <h4 class="color-green">Pet</h4>
+        <%= f.label :name, data: { required: 'true' } %>
         <%= f.text_field :name, class: 'span12' %>
-        <label>Clase de mascota <span class="color-red">*</span></label>
-        <select class="span6">
-            <option>Perro</option>
+        <%= f.label :pet_types, 'Pick up a type', data: { required: 'true' } %>
+        <%= select_tag :pet_types, content_tag( :option, 'Select one...', :value => '') + options_from_collection_for_select(@pet_types, 'id', 'name'), :html => { class: "span6"}, data: { required: 'true' } %>
         </select>
-        <label>Por favor, elige la raza <span class="color-red">*</span></label>
-        <select class="span6">
-            <option>--A--</option>
-        </select>
-        <label>Breve descripción de tu mascota <span class="color-red">*</span></label>
-        <input type="text" class="span12" />
-
-        <label>Fecha de nacimiento<span class="color-red">*</span></label>
+        <%= f.label :pet_breeds, 'Pick up a breed' %>
+        <%= select_tag :pet_breeds, options_for_select(['Select one...']), :html => { class: "span6"} %>
+        <%= f.label :name, 'Brief description', data: { required: 'true' } %>
+        <%= f.text_field :description, class: "span12" %>
+        <%= f.label :bith_date, 'Birth date', data: { required: 'true' } %>
         <input type="text" class="span12" />
 
         <label class="checkbox">
@@ -39,21 +35,19 @@
             <input type="checkbox" value="">
             Hembra
         </label>
-
-        <label>Datos adicionales </span></label>
-        <input type="text" class="span12" placeholder="Concursos, pedigree, adiestrado..." />
-
+        <%= f.label :notes, 'Additional notes' %>
+        <%= f.text_field :notes, class: "span12", placeholder: "Contests, pedigree, trained..." %>
         <p>
-            Sube una imagen de perfil
-            <br>
+            Upload image
+            <br/>
             <button class="btn btn-mini btn-primary" type="button">Buscar</button>
         </p>
+        <%= f.submit value: "Register", class: 'btn-u pull-right' %>
         <div class="controls form-inline">
-            <label class="checkbox"><input type="checkbox" />&nbsp; He leído los <a href="">Términos y Condiciones</a></label>
-            <%= f.submit value: "Regístrate", class: 'btn-u pull-right' %>
+            <br/>
         </div>
         <hr />
-        <p>¿Ya estás registrado? Haz clic <a href="page_login.html" class="color-green">aquí</a> para ingresar a tu cuenta.</p>
+        <p>Are you already registered? Click <a href="page_login.html" class="color-green">here</a> to login to your account.</p>
       <% end %>
     </div><!--/row-fluid-->
 </div><!--/container-->

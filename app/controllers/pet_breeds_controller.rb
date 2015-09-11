@@ -1,11 +1,15 @@
 class PetBreedsController < ApplicationController
-  before_action :set_pet_type_pet_breed, only: [:index]
   before_action :set_pet_breed, only: [:show, :edit, :destroy, :update]
   # GET /pet-types/1/pet-breeds
   # GET /pet-types/1/pet-breeds.json
   def index
     pet_type = PetType.find(params[:pet_type_id])
-    @pet_breeds = pet_type.pet_breeds
+    @pet_breeds = pet_type.pet_breeds.select { | match | match.published }
+
+    respond_to do | format |
+      format.html #index.html.erb
+      format.json { render json: @pet_breeds }
+    end
   end
 
   # GET /pet-breeds/1/edit
@@ -67,10 +71,10 @@ class PetBreedsController < ApplicationController
   end
 
   private
+    # Use callbacks to share common setup or constraints between actions.
     def set_pet_breed
       @pet_breed = PetBreed.find(params[:id])
     end
-    # Use callbacks to share common setup or constraints between actions.
     def set_pet_type_pet_breed
      	pet_type = PetType.find(params[:pet_type_id])
     	@pet_breed = pet_type.pet_breeds.find(params[:id])

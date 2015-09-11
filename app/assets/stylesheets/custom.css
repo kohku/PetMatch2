@@ -10,3 +10,9 @@
 a [class^="icon-"], a:hover [class^="icon-"], a:visited [class^="icon-"], a:active [class^="icon-"] {
 	margin-right: .3em;
 }
+
+label[data-required="true"]:after { 
+	color: #c00;
+	content: '*';
+	margin-left: .15em;
+};
