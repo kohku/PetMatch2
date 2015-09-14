@@ -9,6 +9,7 @@
  * compiled file so the styles you add here take precedence over styles defined in any styles
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
+ *= require jquery-ui
  *= require plugins/bootstrap/bootstrap.min
  *= require style.css
  *= require headers/header1.css
@@ -16,5 +17,7 @@
  *= require plugins/font-awesome/css/font-awesome.min
  *= require style_responsive
  *= require themes/default
+ *= require jquery.ui.theme
+ *= require jquery.ui.theme.font-awesome
  *= require custom
  */

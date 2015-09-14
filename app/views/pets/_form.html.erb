@@ -17,14 +17,14 @@
         <%= f.label :name, data: { required: 'true' } %>
         <%= f.text_field :name, class: 'span12' %>
         <%= f.label :pet_types, 'Pick up a type', data: { required: 'true' } %>
-        <%= select_tag :pet_types, content_tag( :option, 'Select one...', :value => '') + options_from_collection_for_select(@pet_types, 'id', 'name'), :html => { class: "span6"}, data: { required: 'true' } %>
+        <%= select_tag :pet_types, content_tag( :option, 'Select one...', :value => '') + options_from_collection_for_select(@pet_types, 'id', 'name'), class: "span6", data: { required: 'true' } %>
         </select>
         <%= f.label :pet_breeds, 'Pick up a breed' %>
-        <%= select_tag :pet_breeds, options_for_select(['Select one...']), :html => { class: "span6"} %>
+        <%= select_tag :pet_breeds, options_for_select(['Select one...']), class: "span6" %>
         <%= f.label :name, 'Brief description', data: { required: 'true' } %>
         <%= f.text_field :description, class: "span12" %>
         <%= f.label :bith_date, 'Birth date', data: { required: 'true' } %>
-        <input type="text" class="span12" />
+        <input type="date" class="span12 datepicker"/>
 
         <label class="checkbox">
             <input type="checkbox" value="">

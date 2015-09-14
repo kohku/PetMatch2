@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require turbolinks
 //= require modernizr.custom
 //= require plugins/bootstrap/js/bootstrap.min
