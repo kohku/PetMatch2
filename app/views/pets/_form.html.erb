@@ -16,32 +16,29 @@
         <h4 class="color-green">Pet</h4>
         <%= f.label :name, data: { required: 'true' } %>
         <%= f.text_field :name, class: 'span12' %>
-        <%= f.label :pet_types, 'Pick up a type', data: { required: 'true' } %>
-        <%= select_tag :pet_types, content_tag( :option, 'Select one...', :value => '') + options_from_collection_for_select(@pet_types, 'id', 'name'), class: "span6", data: { required: 'true' } %>
+        <%= f.label :pet_type_id, 'Pick up a type', data: { required: 'true' } %>
+        <%= f.select :pet_type_id, content_tag( :option, 'Select one...', :value => '') + options_from_collection_for_select(@pet_types, 'id', 'name'), {}, { id: 'pet_type', class: "span6", data: { required: 'true' } } %>
         </select>
-        <%= f.label :pet_breeds, 'Pick up a breed' %>
-        <%= select_tag :pet_breeds, options_for_select(['Select one...']), class: "span6" %>
+        <%= f.label :pet_breed_id, 'Pick up a breed' %>
+        <%= f.select :pet_breed_id, options_for_select(['Select one...']), {}, { id: 'pet_breed', class: 'span6' } %>
         <%= f.label :name, 'Brief description', data: { required: 'true' } %>
-        <%= f.text_field :description, class: "span12" %>
-        <%= f.label :bith_date, 'Birth date', data: { required: 'true' } %>
-        <input type="date" class="span12 datepicker"/>
-
-        <label class="checkbox">
-            <input type="checkbox" value="">
-            Macho
-        </label>
-
-        <label class="checkbox">
-            <input type="checkbox" value="">
-            Hembra
-        </label>
+        <%= f.text_field :description, class: 'span12' %>
+        <%= f.label :birth_date, 'Birth date', data: { required: 'true' } %>
+        <%= f.text_field :birth_date, class: 'span12', type: 'date' %>
+        <div class="radio">
+            <label>
+                <input type="radio" name="pet[gender]" id="male" value="male" checked/>
+                Male
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="pet[gender]" id="female" value="female"/>
+                Female
+            </label>
+        </div>
         <%= f.label :notes, 'Additional notes' %>
         <%= f.text_field :notes, class: "span12", placeholder: "Contests, pedigree, trained..." %>
-        <p>
-            Upload image
-            <br/>
-            <button class="btn btn-mini btn-primary" type="button">Buscar</button>
-        </p>
         <%= f.submit value: "Register", class: 'btn-u pull-right' %>
         <div class="controls form-inline">
             <br/>

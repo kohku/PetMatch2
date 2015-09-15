@@ -6,7 +6,14 @@ PETMATCH = {
 			console.log("Application-wide JavaScript.");
 			App.init();
 
-			$('.datepicker').datepicker();
+			if (!Modernizr.touch || !Modernizr.inputtypes.date) {
+		        $('input[type=date]')
+		            .attr('type', 'text')
+		            .datepicker({
+		                // Consistent format with the HTML5 picker
+		                dateFormat: 'yy-mm-dd'
+            		});
+    		}
 		}
 	},
 
@@ -23,10 +30,10 @@ PETMATCH = {
 			var placeholder = '<option value="" disabled selected>Select one...</option>';
 			var loading = '<option value="">Loading...</option>';
 
-			$('#pet_types').on('change', function(){
+			$('#pet_type').on('change', function(){
 				pet_type_id = $(this).val();
 				if (pet_type_id == undefined || pet_type_id == ""){
-					$('#pet_breeds').empty().append(placeholder);
+					$('#pet_breed').empty().append(placeholder);
 					return;
 				}
 				$.ajax({
@@ -34,21 +41,21 @@ PETMATCH = {
 					method: 'GET',
 					dataType: 'json',
 					beforeSend: function(data){
-						$('#pet_breeds').empty().append(loading);
+						$('#pet_breed').empty().append(loading);
 					}
 				}).done(function(data){
-					var breeds = $('#pet_breeds');
+					var breeds = $('#pet_breed');
 					breeds.empty();
 					data.forEach(function(entry){
 						breeds.append('<option value="{0}">{1}</option>'.format(entry.id, entry.name));
 					});
-					if ($('#pet_breeds option').length > 0) {
+					if ($('#pet_breed option').length > 0) {
 						breeds.prepend(placeholder);
 					} else {
 						breeds.prepend('<option value="" disabled selected>No breeds available.</option>');
 					}
 				}).fail(function(){
-					$('#pet_breeds').empty().append('<option value="" disabled selected>Loading failed.</option>');
+					$('#pet_breed').empty().append('<option value="" disabled selected>Loading failed.</option>');
 				});
 			});
 		}
