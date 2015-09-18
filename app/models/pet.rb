@@ -1,6 +1,6 @@
 class Pet < ActiveRecord::Base
-	has_one :pet_type
-	has_one :pet_breed
+	has_one :pet_type, foreign_key: "id"
+	has_one :pet_breed, foreign_key: "id"
 	validates :name, presence: true, length: { minimum: 2 }
 	validates_associated :pet_type
 	validates :description, presence: true, length: { minimum: 2 }

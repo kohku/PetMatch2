@@ -19,5 +19,6 @@
 //= require plugins/back-to-top
 //= require utils
 //= require app
+//= require pets.custom
 //= require global
 //= require_tree .

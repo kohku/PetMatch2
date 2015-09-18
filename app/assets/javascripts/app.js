@@ -90,7 +90,7 @@ var App = function () {
     return {
         init: function () {
             handleBootstrap();
-            handleIEFixes();
+            //handleIEFixes();
             handleMisc();
             handleSearch();
             handleSwitcher();

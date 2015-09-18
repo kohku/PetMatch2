@@ -17,28 +17,28 @@
         <%= f.label :name, data: { required: 'true' } %>
         <%= f.text_field :name, class: 'span12' %>
         <%= f.label :pet_type_id, 'Pick up a type', data: { required: 'true' } %>
-        <%= f.select :pet_type_id, content_tag( :option, 'Select one...', :value => '') + options_from_collection_for_select(@pet_types, 'id', 'name'), {}, { id: 'pet_type', class: "span6", data: { required: 'true' } } %>
+        <%= f.collection_select :pet_type_id, PetType.order(:name).select { | match | match.published }, :id, :name, { prompt: true }, { id: 'pet_type', class: 'span12' } %>
         </select>
         <%= f.label :pet_breed_id, 'Pick up a breed' %>
-        <%= f.select :pet_breed_id, options_for_select(['Select one...']), {}, { id: 'pet_breed', class: 'span6' } %>
+        <%= f.collection_select :pet_breed_id, PetBreed.order(:name).select { | match | match.pet_type_id == @pet.pet_type_id }, :id, :name, { prompt: true }, { id: 'pet_breed', class: 'span12' } %>
         <%= f.label :name, 'Brief description', data: { required: 'true' } %>
         <%= f.text_field :description, class: 'span12' %>
         <%= f.label :birth_date, 'Birth date', data: { required: 'true' } %>
-        <%= f.text_field :birth_date, class: 'span12', type: 'date' %>
+        <%= f.date_field :birth_date, class: 'span12' %>
         <div class="radio">
             <label>
-                <input type="radio" name="pet[gender]" id="male" value="male" checked/>
+                <%= f.radio_button :gender, "male" %>
                 Male
             </label>
         </div>
         <div class="radio">
             <label>
-                <input type="radio" name="pet[gender]" id="female" value="female"/>
+                <%= f.radio_button :gender, "female" %>
                 Female
             </label>
         </div>
         <%= f.label :notes, 'Additional notes' %>
-        <%= f.text_field :notes, class: "span12", placeholder: "Contests, pedigree, trained..." %>
+        <%= f.text_field :notes, { class: "span12", placeholder: "Contests, pedigree, trained..." } %>
         <%= f.submit value: "Register", class: 'btn-u pull-right' %>
         <div class="controls form-inline">
             <br/>

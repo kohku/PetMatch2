@@ -15,12 +15,10 @@ class PetsController < ApplicationController
   # GET /pets/new
   def new
     @pet = Pet.new
-    @pet_types = PetType.select { | match | match.published }
   end
 
   # GET /pets/1/edit
   def edit
-    @pet_types = PetType.select { | match | match.published }
   end
 
   # POST /pets
@@ -38,7 +36,6 @@ class PetsController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @pet.errors, status: :unprocessable_entity }
-        @pet_types = PetType.select { | match | match.published }
       end
     end
   end

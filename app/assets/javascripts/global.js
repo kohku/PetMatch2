@@ -26,38 +26,16 @@ PETMATCH = {
 
 		new: function(){
 			// action-specific code
-			console.log("Page-specific JavaScript on the pets/home page.");
-			var placeholder = '<option value="" disabled selected>Select one...</option>';
-			var loading = '<option value="">Loading...</option>';
+			console.log("Page-specific JavaScript on the pets/new controller.");
 
-			$('#pet_type').on('change', function(){
-				pet_type_id = $(this).val();
-				if (pet_type_id == undefined || pet_type_id == ""){
-					$('#pet_breed').empty().append(placeholder);
-					return;
-				}
-				$.ajax({
-					url: '/pet-types/{0}/pet-breeds.json'.format(pet_type_id),
-					method: 'GET',
-					dataType: 'json',
-					beforeSend: function(data){
-						$('#pet_breed').empty().append(loading);
-					}
-				}).done(function(data){
-					var breeds = $('#pet_breed');
-					breeds.empty();
-					data.forEach(function(entry){
-						breeds.append('<option value="{0}">{1}</option>'.format(entry.id, entry.name));
-					});
-					if ($('#pet_breed option').length > 0) {
-						breeds.prepend(placeholder);
-					} else {
-						breeds.prepend('<option value="" disabled selected>No breeds available.</option>');
-					}
-				}).fail(function(){
-					$('#pet_breed').empty().append('<option value="" disabled selected>Loading failed.</option>');
-				});
-			});
+			PETTYPES.call.loader();
+		},
+
+		edit: function(){
+			// action-specific code
+			console.log("Page-specific JavaScript on the pets/edit controller.");
+
+			PETTYPES.call.loader();
 		}
 	}
 };
