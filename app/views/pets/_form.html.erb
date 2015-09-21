@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row-fluid margin-bottom-10">
-    <%= form_for @pet, html: {class: 'reg-page'} do |f| %>
+    <%= form_for @pet, html: {multipart: true, class: 'reg-page'} do |f| %>
       <% if @pet.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
@@ -39,6 +39,9 @@
         </div>
         <%= f.label :notes, 'Additional notes' %>
         <%= f.text_field :notes, { class: "span12", placeholder: "Contests, pedigree, trained..." } %>
+        <%= image_tag (@pet.image_url) if @pet.image? %>
+        <%= f.file_field :image %>
+        <%= f.hidden_field :image_cache %>
         <%= f.submit value: "Register", class: 'btn-u pull-right' %>
         <div class="controls form-inline">
             <br/>

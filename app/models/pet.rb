@@ -6,5 +6,5 @@ class Pet < ActiveRecord::Base
 	validates :description, presence: true, length: { minimum: 2 }
 	#TODO: Validate date ranges
 	validates :birth_date, presence: true
-
+	mount_uploader :image, ImageUploader
 end

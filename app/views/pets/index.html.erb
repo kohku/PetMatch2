@@ -16,6 +16,7 @@
   <tbody>
     <% @pets.each do |pet| %>
       <tr>
+        <td><%= image_tag pet.image_url.to_s %></td>
         <td><%= pet.name %></td>
         <td><%= pet.published %></td>
         <td><%= pet.birth_date %></td>
