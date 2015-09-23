@@ -4,10 +4,14 @@ require 'rails_helper'
 
 describe PetType do
 	it "has a valid factory" do
-		Factory.create(:pet_type).should be_valid
+		expect(FactoryGirl.create(:pet_type)).to be_valid
 	end
 
 	it "is invalid without a name" do
-		Factory.build(:pet_type, name: nil).should_not be_valid
+		expect(FactoryGirl.build(:pet_type, name: nil)).to_not be_valid
+	end
+
+	it "is invalid without a valid name length" do
+		expect(PetType.new(:name => "a")).to_not be_valid
 	end
 end
