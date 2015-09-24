@@ -9,6 +9,7 @@ gem 'sqlite3'
 # MS SQL Server active record adapter
 gem 'tiny_tds'
 gem 'activerecord-sqlserver-adapter'
+gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

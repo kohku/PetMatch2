@@ -5,8 +5,10 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: sqlserver
-  dataserver: 'localhost\SQLEXPRESS'
+  #adapter: sqlserver
+  adapter: postgresql
+  #dataserver: 'localhost\SQLEXPRESS' #mssql
+  encoding: unicode #postgresql
   database: PetMatch
   username: ruby
   password: rails
@@ -18,8 +20,10 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  adapter: sqlserver
-  dataserver: 'localhost\SQLEXPRESS'
+  #adapter: sqlserver
+  adapter: postgresql
+  #dataserver: 'localhost\SQLEXPRESS' #mssql
+  encoding: unicode #postgresql
   database: PetMatch_Test
   username: ruby
   password: rails
