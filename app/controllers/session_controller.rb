@@ -1,14 +1,14 @@
 class SessionController < ApplicationController
   def create
-    render text: request.env['omniauth.auth'].to_yaml
-  	#begin
-  	#	@user = User.from_omniauth(request.env['omniauth.auth'])
-  	#	session[:user_id] = @user.id
-  	#	flash[:success] = "Welcome, #{@user.name}!"
-  	#rescue
-  	#	flash[:warning] = "Create: There was an error while trying to authenticate you."
-  	#end
-  	#redirect_to root_path
+    begin
+  		@user = User.from_omniauth(request.env['omniauth.auth'])
+  		session[:user_id] = @user.id
+  		flash[:success] = "Welcome, #{@user.name}!"
+  	rescue Exception => e
+  		flash[:warning] = e.message
+  	end
+  	redirect_to root_path
+    #render text: request.env['omniauth.auth'].to_yaml
   end
 
   def failure
