@@ -66,3 +66,5 @@ gem 'will_paginate-bootstrap', '0.2.5'
 gem 'jquery-ui-rails'
 
 gem 'carrierwave'
+
+gem "omniauth-google-oauth2"

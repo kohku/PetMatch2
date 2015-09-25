@@ -7,6 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body data-controller="<%= controller_name %>" data-action="<%= action_name %>">
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>">
+      <%= value %>
+    </div>
+  <% end %>
+  <% if current_user %>
+  <%= link_to 'Log out', logout_path, method: :delete %>
+  <% else %>
+	<%= link_to 'Google', '/auth/google' %>
+  <% end %>
 	
 <%= yield %>
 

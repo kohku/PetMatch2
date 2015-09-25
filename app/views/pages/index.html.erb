@@ -1,0 +1,9 @@
+<h1>Pages#index</h1>
+<p>Find me in app/views/pages/index.html.erb</p>
+<% if current_user %>
+<ul>
+<li><%= current_user.name %></li>
+<li><%= current_user.provider %></li>
+<li><%= current_user.uid %></li>
+</ul>
+<% end %>
