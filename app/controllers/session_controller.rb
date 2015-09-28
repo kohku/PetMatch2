@@ -1,13 +1,45 @@
 class SessionController < ApplicationController
   def create
     begin
-  		@user = User.from_omniauth(request.env['omniauth.auth'])
-  		session[:user_id] = @user.id
-  		flash[:success] = "Welcome, #{@user.name}!"
+  	  auth = request.env['omniauth.auth']
+      unless @identity = Identity.find_from_hash(auth)
+        # Create a new user or add an auth to existing user, depending on
+        # whether there is already a user signed in.
+        @identity = Identity.create_from_hash(auth)
+      end
+
+      if signed_in?
+        if @identity == current_user
+          # User is signed in so they are trying to link an identity with their
+          # account. But we found the identity and the user associated with it
+          # is the current user. So the identity is already associated with
+          # this user. So let's display an error message.
+          redirect_to root_path
+        else
+          # The identity is not associated with the current_user so lets
+          # associtate the identity
+          @identity.user = current_user
+          @identity.save()
+          flash[:success] = "Successfully linked that account!, #{current_user.name}!"
+          redirect_to root_path
+        end
+      else
+        if @identity.user.present?
+          # The identity we found had a user associated with it so let's
+          # just log them in here
+          self.current_user = @auth.user
+          flash[:success] = "Welcome back, #{current_user.name}!"
+          redirect_to root_path
+        else
+          # No user associated with the identity so we need to create a new one
+          flash[:success] = "Welcome, #{current_user.name}!. Please finish registering"
+          redirect_to new_user_url
+        end
+      end
   	rescue Exception => e
   		flash[:warning] = e.message
   	end
-  	redirect_to root_path
+  	#redirect_to root_path
     #render text: request.env['omniauth.auth'].to_yaml
   end
 
@@ -24,6 +56,7 @@ class SessionController < ApplicationController
   	if current_user
   		session.delete(:user_id)
   		flash[:success] = 'See you!'
+      self.current_user = nil
   	end
   	redirect_to root_path
   end

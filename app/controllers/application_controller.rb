@@ -9,5 +9,14 @@ class ApplicationController < ActionController::Base
   	@current_user ||= User.find_by(id: session[:user_id])
   end
 
-  helper_method :current_user
+  def signed_in?
+  	!!current_user
+  end
+
+  helper_method :current_user, :signed_in?
+
+  def current_user=(user)
+  	@current_user = user
+  	session[:user_id] = user.nil? nil : user.id
+  end
 end
