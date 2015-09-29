@@ -27,7 +27,7 @@ class SessionController < ApplicationController
         if @identity.user.present?
           # The identity we found had a user associated with it so let's
           # just log them in here
-          self.current_user = @auth.user
+          self.current_user = @identity.user
           flash[:success] = "Welcome back, #{current_user.name}!"
           redirect_to root_path
         else
