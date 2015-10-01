@@ -1,4 +1,5 @@
 class PetTypesController < ApplicationController
+  before_action :authenticate_user!
 	before_action :set_pet_type, only: [:show, :edit, :update, :destroy]
 
   # GET /pet-types

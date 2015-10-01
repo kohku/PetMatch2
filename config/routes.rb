@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  get 'session/create'
-
-  get 'session/failure'
-
-  get 'pages/index'
+  devise_for :users, :path => 'account',
+      :path_names => { :sign_in => 'login', :sign_out =>  'logout'},
+      :controllers => { :omniauth_callbacks => 'callbacks'}
 
   resources :pets
 
@@ -13,13 +11,13 @@ Rails.application.routes.draw do
     resources "pet-breeds", :controller => :pet_breeds, :as => :pet_breeds
   end
 
-  root 'pages#index'
+  root 'pets#index'
 
-  get 'auth/:provider/callback', to: 'session#create'
+  #get 'auth/:provider/callback', to: 'session#create'
 
-  get 'auth/:provider/failure', to: 'session#failure'
+  #get 'auth/:provider/failure', to: 'session#failure'
 
-  delete '/logout', to: 'session#destroy'
+  #delete '/logout', to: 'session#destroy'
    
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

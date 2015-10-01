@@ -67,4 +67,6 @@ gem 'jquery-ui-rails'
 
 gem 'carrierwave'
 
+gem 'devise'
+gem 'omniauth'
 gem "omniauth-google-oauth2"
