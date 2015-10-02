@@ -239,7 +239,7 @@ Devise.setup do |config|
 
   config.omniauth :google_oauth2, "291730784482-tl1f47jcnt0kg259idjfdf1i7kf4u386.apps.googleusercontent.com", "sp9yLwIQl5UmqzjNHqni8ZzD",
     {
-      scope: 'profile',
+      :scope => ['profile', 'email'],
       :client_options => {:ssl => {:verify => !Rails.env.development? }},
       :name => "google"
     }

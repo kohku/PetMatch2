@@ -4,12 +4,12 @@ class Identity < ActiveRecord::Base
 	validates_presence_of :user_id, :uid, :provider
 	validates_uniqueness_of :uid, :scope => :provider
 
-	def self.find_from_hash(hash)
-		find_by_provider_and_uid(hash['provider'], hash['uid'])
+	def self.find_from_hash(auth)
+		find_by_provider_and_uid(auth.provider, auth.uid)
 	end
 
-	def self.create_from_hash(hash, user = nil)
-		user ||= User.create_from_hash!(hash)
-		Identity.create(:user => user, :uid => hash['uid'], :provider => hash['provider'])
+	def self.from_omniauth(auth, user = nil)
+		user ||= User.from_omniauth!(auth)
+		Identity.create(:user => user, :provider => auth.provider, :uid => auth.uid)
 	end
 end

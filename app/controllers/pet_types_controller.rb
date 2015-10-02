@@ -6,6 +6,11 @@ class PetTypesController < ApplicationController
   # GET /pet-types.json
   def index
     @pet_types = PetType.all
+
+    respond_to do |format|
+      format.html #index.html.erb
+      format.json { render json: @pet_types }
+    end
   end
 
    # GET /pet-types/1
