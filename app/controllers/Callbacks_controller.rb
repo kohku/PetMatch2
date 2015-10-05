@@ -9,8 +9,7 @@ class CallbacksController < Devise::OmniauthCallbacksController
 		        @identity = Identity.from_omniauth(auth)
 		     end
 
-			sign_in_and_redirect @identity.user
-#			if signed_in?
+			if user_signed_in?
 #				if @identity == current_user
 				  # User is signed in so they are trying to link an identity with their
 				  # account. But we found the identity and the user associated with it
@@ -23,9 +22,9 @@ class CallbacksController < Devise::OmniauthCallbacksController
 #				  @identity.user = current_user
 #				  @identity.save()
 #				  flash[:success] = "Successfully linked that account!, #{current_user.name}!"
-				  #redirect_to root_path
+				  redirect_to root_path
 #				end
-#			else
+			else
 #				if @identity.user.present?
 				  # The identity we found had a user associated with it so let's
 				  # just log them in here
@@ -37,7 +36,8 @@ class CallbacksController < Devise::OmniauthCallbacksController
 #				  flash[:success] = "Welcome, #{current_user.name}!. Please finish registering"
 				  #redirect_to new_user_url
 #				end
-#			end	
+				sign_in_and_redirect @identity.user
+			end	
 #	  	rescue Exception => e
 #	  		flash[:warning] = e.message
 #	  	end

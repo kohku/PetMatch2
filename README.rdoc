@@ -26,3 +26,18 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+# Notes, tips and tricks
+
+# Plans, future features
+
+- CRUD Interface for users
+- Pages
+- Landing page
+	- Carrousel
+- Search
+- Breadcrumbs
+- Blog
+- Contact
+	- Latest posts
+

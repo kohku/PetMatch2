@@ -1,7 +1,39 @@
 Rails.application.routes.draw do
+  get 'users/index'
+
+  get 'users/show'
+
+  get 'users/new'
+
+  get 'users/edit'
+
+  get 'users/create'
+
+  get 'users/update'
+
+  get 'users/destroy'
+
+  get 'user/index'
+
+  get 'user/show'
+
+  get 'user/new'
+
+  get 'user/edit'
+
+  get 'user/create'
+
+  get 'user/update'
+
+  get 'user/destroy'
+
   devise_for :users, :path => 'account',
       :path_names => { :sign_in => 'login', :sign_out =>  'logout'},
       :controllers => { :omniauth_callbacks => 'callbacks'}
+
+  scope "/admin" do
+    resources :users
+  end
 
   resources :pets
 
