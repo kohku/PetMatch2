@@ -18,12 +18,15 @@ label[data-required="true"]:after {
 };
 
 #Google {
-	background-image: url(image_path("btn_google_light_normal_ios.png"));
+	background-image: url(image_path("button-gplus.png"));
 	background-repeat: no-repeat;
-	background-position: 0;
-	padding-left: 42px;
-	height: 46px;
+	background-position: 8px;
+	background-size: 26px 26px;
 	background-color: #fff;
-	padding-top: 0;
-	padding-bottom: 0;
+	color: #dd4b39;
+	font: Roboto Medium;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 8px;
+	padding-left: 50px;
 }

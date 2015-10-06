@@ -1,25 +1,32 @@
+<% if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+<hr>
+<h4>Forgot your password?</h4>
+	<p>We can help you reset it.
+	<%= link_to "Click here", new_password_path(resource_name), { class: "color-green" } %>
+	to get a new one.</p>
+<% end %>
+<hr>
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", new_session_path(resource_name) %><br />
+	<h4>Already registered?</h4>
+	<p><%= link_to "Click here", new_session_path(resource_name), { class: "color-green" } %> to login with your account<%= devise_mapping.omniauthable? && resource_class.omniauth_providers.count > 0 ? ", or" : "." %></p>
 <% end -%>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+	<h4>New user?</h4>
+	<p><%= link_to "Fill out", new_registration_path(resource_name), { class: "color-green" } %> the form to create an account<%= devise_mapping.omniauthable? && resource_class.omniauth_providers.count > 0 ? ", or" : "." %> </p>
 <% end -%>
 
-<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
-<% end -%>
-
+<% if devise_mapping.omniauthable? %>
+	<% resource_class.omniauth_providers.each do |provider| %>
+	  <a id='<%= "#{provider.to_s.titleize}" %>' href="<%= omniauth_authorize_path(resource_name, provider) %>" class="btn btn-default btn-small">
+	    <%= "Sign in with #{provider.to_s.titleize}" %>
+	  </a>
+	<% end %>
+<% end %>
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
   <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
 <% end -%>
 
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
-<% end -%>
-
-<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %><br />
-  <% end -%>
 <% end -%>
