@@ -1,2 +1,41 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class="container">
+    <div class="row-fluid">
+		<h3>User Management</h3>
+		<div class="custom_panel margin-bottom-10">
+			<% if !notice.blank? %>
+			<div class="alert alert-info"><button type="button" class="close" data-dismiss="alert">×</button><strong><%= notice %></strong></div>
+			<% end %>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Location</th>
+						<th>Created at</th>
+						<th>Last sign in date</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @users.each do |user| %>
+					<tr>
+						<td><%= user.email%></td>
+						<td><%= user.name%></td>
+						<td><%= user.location%></td>
+						<td><%= local_time(user.created_at) %></td>
+						<td><%= local_time(user.last_sign_in_at) %></td>
+						<td>
+							<a href="<%= url_for user_path(user) %>" class="btn btn-default btn-small">
+							<i class="icon-zoom-in"></i>Show
+							</a>
+						</td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+		<a href="<%= url_for new_user_path %>" class="btn btn-default btn-small">
+			<i class="icon-plus"></i>New User
+		</a>
+	</div>
+</div>

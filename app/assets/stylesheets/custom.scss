@@ -16,3 +16,14 @@ label[data-required="true"]:after {
 	content: '*';
 	margin-left: .15em;
 };
+
+#Google {
+	background-image: url(image_path("btn_google_light_normal_ios.png"));
+	background-repeat: no-repeat;
+	background-position: 0;
+	padding-left: 42px;
+	height: 46px;
+	background-color: #fff;
+	padding-top: 0;
+	padding-bottom: 0;
+}

@@ -7,9 +7,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body data-controller="<%= controller_name %>" data-action="<%= action_name %>">
+  <div class="top">
+    <div class="container">
+      <div class="top-widget pull-right">
+        <ul class="loginbar">
+            <li>
+              <% if user_signed_in?  %>
+                <%= link_to 'Logout', destroy_user_session_path, :method => :delete, :class => "login-btn" %>
+              <% elsif controller_name != 'sessions' %>
+                <%= link_to 'Login', new_user_session_path, :class => "login-btn" %>
+              <% end %>
+            </li>
+        </ul>
+    </div>
+  </div>
+
   <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>">
-      <%= value %>
+      <button type="button" class="close" data-dismiss="alert">×</button><strong><%= value %></strong></div>
     </div>
   <% end %>
 	

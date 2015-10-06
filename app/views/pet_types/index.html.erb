@@ -2,7 +2,9 @@
     <div class="row-fluid">
       <h3> Pet Types</h3>
       <div class="custom_panel margin-bottom-10">
-        <p id="notice" class="text-info"><%= notice %></p>
+        <% if !notice.blank? %>
+        <div class="alert alert-info"><button type="button" class="close" data-dismiss="alert">×</button><strong><%= notice %></strong></div>
+        <% end %>
         <table class="table table-striped">
             <thead>
               <tr>
@@ -22,7 +24,7 @@
                 </td>
                 <td>
                   <a href="<%= url_for pet_type_path(pet_type) %>" class="btn btn-default btn-small">
-                    <i class="icon-pencil"></i>Show
+                    <i class="icon-zoom-in"></i>Show
                   </a>
                   <% if can? :edit, pet_type %>
                   <a href="<%= url_for edit_pet_type_path(pet_type) %>" class="btn btn-default btn-small">
@@ -37,6 +39,7 @@
             </tbody>
         </table>
       </div>
-    <%= link_to 'New Pet Type', new_pet_type_path, :class => 'btn btn-default btn-small' %>
-  </div>
+      <a href="<%= url_for new_pet_type_path %>" class="btn btn-default btn-small">
+      <i class="icon-plus"></i>New User
+    </a>
 </div>

@@ -21,4 +21,5 @@
 //= require app
 //= require pets.custom
 //= require global
+//= require local_time
 //= require_tree .
