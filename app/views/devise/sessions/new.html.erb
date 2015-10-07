@@ -2,6 +2,7 @@
   <div class="row-fluid">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'log-page'}) do |f| %>
       <h3>Log in to your account</h3>
+      
       <div class="input-prepend">
         <span class="add-on"><i class="icon-user"></i></span>
         <%= f.email_field :email, { autofocus: true, class: "input-xlarge", placeholder: "someone@example.com" } %>
@@ -11,6 +12,7 @@
         <span class="add-on"><i class="icon-lock"></i></span>
         <%= f.password_field :password, { autocomplete: "off", class: "input-xlarge", placeholder: "Password"} %>
       </div>
+
       <% if devise_mapping.rememberable? -%>
         <div class="input-prepend">
           <%= f.label :remember_me do %>
@@ -19,6 +21,7 @@
         <% end %>
         </div>
       <% end %>
+
       <div class="controls form-inline">
         <%= f.submit "Log in", { class: "btn-u" } %>
       </div>

@@ -1,2 +1,21 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container">
+    <div class="row-fluid">
+		<h3>User Management</h3>
+		<div class="custom_panel margin-bottom-10">
+			<%= form_for @user, html: { class: 'form-horizontal' } do | f | %>
+				<div class="control-group">
+					<%= f.label :email, { class: 'control-label' } %>
+					<div class="controls">
+						<a href="#" id="email" data-type="text" data-resource="post" data-name="email" data-url="/<%= controller_name %>/<%= params[:id] %>" data-original-title="Enter email"><%= @user.email %></a>
+					</div>
+				</div>
+				<div class="control-group">
+					<%= f.label :name, { class: 'control-label' } %>
+					<div class="controls">
+						<a href="#" id="name" data-type="text" data-resource="post" data-name="name" data-url="/<%= controller_name%>/<%= params[:id] %>" data-original-title="Enter name"><%= !@user.name.blank? ? @user.name : "None" %></a>
+					</div>
+				</div>
+			<% end %>
+		</div>
+    </div>
+</div>

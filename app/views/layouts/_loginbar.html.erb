@@ -1,0 +1,15 @@
+<ul class="loginbar">
+    <li><a href="">Help</a></li>
+    <% if user_signed_in?  %>
+    <li class="devider">&nbsp;</li>
+    <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete, :class => "login-btn" %></li>
+    <% end 
+       if controller_name == 'sessions' && 'new'.casecmp(action_name).zero? %>
+    <li class="devider">&nbsp;</li>
+    <li><%= link_to "Sign up", new_user_registration_path, :class => "login-btn" %></li>
+    <% end 
+       if !user_signed_in? && controller_name != 'sessions' %>
+    <li class="devider">&nbsp;</li>
+    <li><%= link_to 'Login', new_user_session_path, :class => "login-btn" %></li>
+    <% end %>
+</ul>

@@ -22,4 +22,6 @@
 //= require pets.custom
 //= require global
 //= require local_time
+//= require bootstrap-editable
+//= require bootstrap-editable-rails
 //= require_tree .

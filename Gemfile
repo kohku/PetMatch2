@@ -75,3 +75,5 @@ gem 'cancan'
 gem 'role_model'
 
 gem 'local_time'
+
+gem 'bootstrap-editable-rails'
