@@ -6,13 +6,13 @@
 				<div class="control-group">
 					<%= f.label :email, { class: 'control-label' } %>
 					<div class="controls">
-						<a href="#" id="email" data-type="text" data-resource="post" data-name="email" data-url="/<%= controller_name %>/<%= params[:id] %>" data-original-title="Enter email"><%= @user.email %></a>
+						<%= f.text_field :email, { disabled: 'disabled'} %>
 					</div>
 				</div>
 				<div class="control-group">
 					<%= f.label :name, { class: 'control-label' } %>
 					<div class="controls">
-						<a href="#" id="name" data-type="text" data-resource="post" data-name="name" data-url="/<%= controller_name%>/<%= params[:id] %>" data-original-title="Enter name"><%= !@user.name.blank? ? @user.name : "None" %></a>
+						<a href="#" id="name" data-name="name"  data-resource="user" data-pk="<%= params[:id]%>" data-url="<%= user_path %>" data-type="text"><%= !@user.name.blank? ? @user.name : "None" %></a>
 					</div>
 				</div>
 			<% end %>

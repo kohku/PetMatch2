@@ -19,6 +19,6 @@
  *= require themes/default
  *= require jquery.ui.theme
  *= require jquery.ui.theme.font-awesome
- *= require bootstrap-editable
+ *= require plugins/bootstrap-editable/css/bootstrap-editable
  *= require custom
  */

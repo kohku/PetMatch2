@@ -37,6 +37,17 @@ PETMATCH = {
 
 			PETTYPES.call.loader();
 		}
+	},
+
+	// admin/users
+	users:  {
+		show: function(){
+			console.log("Page-specific Javascript on the admin/users/show controller.")
+			$.fn.editable.defaults.mode = 'inline';
+			$.fn.editable.defaults.ajaxOptions = {type: "PATCH"};
+
+			$('#name').editable();
+		}
 	}
 };
 
