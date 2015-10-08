@@ -44,9 +44,25 @@ PETMATCH = {
 		show: function(){
 			console.log("Page-specific Javascript on the admin/users/show controller.")
 			$.fn.editable.defaults.mode = 'inline';
-			$.fn.editable.defaults.ajaxOptions = {type: "PATCH"};
+			$.fn.editable.defaults.ajaxOptions = {type: 'PATCH',dataType: 'json'};
 
-			$('#name').editable();
+			$('#name').editable({
+				params: function(params){
+					return { user : { name: params.value }};
+				},
+				success: function(){
+					debugger;
+				},
+				error: function(){
+					debugger;
+				}
+			});
+
+			$('.editable.editable-click').hover(function(){
+				$(this).append('<span class="editable-add-on"><i class="icon-edit"></i></span>');
+			}, function(){
+				$(this.parentNode).find('span.editable-add-on').remove();
+			});
 		}
 	}
 };

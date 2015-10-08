@@ -30,3 +30,39 @@ label[data-required="true"]:after {
 	padding: 8px;
 	padding-left: 50px;
 }
+.editable.editable-click {
+	color: #333;
+	font-size: 14px;
+	transition: border 0.5s ease;
+	border: 1px solid rgba(204,204,204,0.0);
+	padding: 4px 6px;
+	height: 20px;
+	line-height: 20px;
+	overflow:hidden;
+}
+.editable.editable-click:hover {
+	border: 1px solid rgb(204,204,204);
+	cursor: text;
+	box-shadow: rgba(0,0,0,0.0745098) 0px 1px 1px 0px inset;
+	padding-right: 0;
+}
+.editable-add-on{
+	color: rgb(51,51,51);
+	font-size: 14px;
+	font-weight: normal;
+	border: 1px solid rgb(204,204,204);
+	padding: 4px 4px 4px 6px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	background-color: rgb(238,238,238);
+	width: 16px;
+	min-width: 16px;
+	text-shadow: rgb(255,255,255) 0x 1px 0px;
+	vertical-align: top;
+	float:right;
+	margin-top: -5px;
+	margin-right: -1px;
+	margin-left: .5em;
+	cursor: pointer;
+}

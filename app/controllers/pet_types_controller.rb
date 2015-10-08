@@ -37,7 +37,7 @@ class PetTypesController < ApplicationController
     respond_to do |format|
       if @pet_type.save
         format.html { redirect_to pet_types_path, notice: 'Pet type was successfully created.' }
-        format.json { render :show, status: :created, location: @pet_type }
+        format.json { render json: pet_type, status: :ok }
       else
         format.html { render :new }
         format.json { render json: @pet_type.errors, status: :unprocessable_entity }
@@ -51,7 +51,7 @@ class PetTypesController < ApplicationController
     respond_to do |format|
       if @pet_type.update(pet_params)
         format.html { redirect_to pet_types_path, notice: 'Pet was successfully updated.' }
-        format.json { render :show, status: :ok, location: @pet_type }
+        format.json { render json: pet_type, status: :ok }
       else
         format.html { render :edit }
         format.json { render json: @pet_type.errors, status: :unprocessable_entity }
