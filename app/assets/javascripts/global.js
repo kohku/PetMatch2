@@ -48,7 +48,6 @@ PETMATCH = {
 			var alert_info = '<div class="alert alert-info"><button type="button" class="close" data-dismiss="alert">×</button><strong>{0}</strong></div></div>';
 
 			console.log("Page-specific Javascript on the admin/users/show controller.")
-			debugger;
 			$.fn.editable.defaults.mode = 'inline';
 			$.fn.editable.defaults.ajaxOptions = {type: 'PATCH',dataType: 'json'};
 			$.fn.editable.defaults.emptytext = 'None';
@@ -80,7 +79,14 @@ PETMATCH = {
 				}
 			});
 
-			$('.editable.editable-click').hover(function(){
+			$('#roles').editable({
+				source: '/admin/users/all_roles',
+				params: function(params){
+					return { user : { roles : params.value }};
+				}
+			});
+
+			$('.editable.editable-click[data-type="text"]').hover(function(){
 				$(this).append('<span class="editable-add-on"><i class="icon-edit"></i></span>');
 			}, function(){
 				$(this.parentNode).find('span.editable-add-on').remove();

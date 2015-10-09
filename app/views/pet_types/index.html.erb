@@ -26,12 +26,14 @@
                   <a href="<%= url_for pet_type_path(pet_type) %>" class="btn btn-default btn-small">
                     <i class="icon-zoom-in"></i>Show
                   </a>
-                  <% if can? :edit, pet_type %>
+                  <% if can? :edit, :pet_type %>
                   <a href="<%= url_for edit_pet_type_path(pet_type) %>" class="btn btn-default btn-small">
                     <i class="icon-pencil"></i>Edit
                   </a>
                   <% end %>
+                  <% if can? :destroy, :pet_type %>
                   <%= link_to pet_type, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-small" do %><i class="icon-remove"></i>Destroy
+                  <% end %>
                   <% end %>
                 </td>
               </tr>
@@ -39,7 +41,9 @@
             </tbody>
         </table>
       </div>
+      <% if can? :new, :pet_type %>
       <a href="<%= url_for new_pet_type_path %>" class="btn btn-default btn-small">
-      <i class="icon-plus"></i>New User
-    </a>
+        <i class="icon-plus"></i>New User
+      </a>
+      <% end %>
 </div>

@@ -32,7 +32,11 @@ Rails.application.routes.draw do
       :controllers => { :omniauth_callbacks => 'callbacks'}
 
   scope "/admin" do
-    resources :users
+    resources :users do
+      collection do
+        get 'all_roles'
+      end
+    end
   end
 
   resources :pets

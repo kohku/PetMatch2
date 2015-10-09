@@ -30,16 +30,20 @@ label[data-required="true"]:after {
 	padding: 8px;
 	padding-left: 50px;
 }
-.editable.editable-click {
+.editable.editable-click, .editable-checklist span {
+	font-size: 14px;
+	text-transform: capitalize;
+}
+.editable.editable-click[data-type='text'] {
 	color: #333;
 	font-size: 14px;
 	border: 1px solid rgba(204,204,204,0.0);
 	padding: 4px 6px;
 	height: 20px;
 	line-height: 20px;
-	overflow:hidden;
+	/*overflow:hidden;*/
 }
-.editable.editable-click:hover {
+.editable.editable-click:hover[data-type='text'] {
 	border: 1px solid rgb(204,204,204);
 	cursor: text;
 	box-shadow: rgba(0,0,0,0.0745098) 0px 1px 1px 0px inset;

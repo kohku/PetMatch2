@@ -9,9 +9,7 @@
 				<thead>
 					<tr>
 						<th>Email</th>
-						<th>Name</th>
-						<th>Location</th>
-						<th>Created at</th>
+						<th>Roles</th>
 						<th>Last sign in date</th>
 						<th></th>
 					</tr>
@@ -20,9 +18,12 @@
 					<% @users.each do |user| %>
 					<tr>
 						<td><%= user.email%></td>
-						<td><%= user.name%></td>
-						<td><%= user.location%></td>
-						<td><%= local_time(user.created_at) %></td>
+						<td>
+						<% for role in User.valid_roles %>
+		                	<i class="icon-check<%= user.has_role?(role) ? '' : '-empty'%>"></i>
+		                	<%= role.to_s.humanize %><br/>
+						<% end %>
+						</td>
 						<td><%= local_time(user.last_sign_in_at) %></td>
 						<td>
 							<a href="<%= url_for user_path(user) %>" class="btn btn-default btn-small">

@@ -12,31 +12,59 @@
 				<div class="control-group">
 					<%= f.label :name, { class: 'control-label' } %>
 					<div class="controls">
+						<% if can? :edit, :user %>
 						<a href="#" id="name" data-name="name" data-resource="user" data-pk="<%= params[:id]%>" data-url="<%= user_path %>" data-type="text"><%= @user.name %></a>
+						<% else %>
+							<span><%= @user.name.blank? ? "None" : @user.name %></span>
+						<% end %>
 					</div>
 				</div>
 				<div class="control-group">
 					<%= f.label :location, { class: 'control-label' } %>
 					<div class="controls">
+						<% if can? :edit, :user %>
 						<a href="#" id="location" data-name="location" data-resource="user" data-pk="<%= params[:id]%>" data-url="<%= user_path %>" data-type="text"><%= @user.location %></a>
+						<% else %>
+							<span><%= @user.location.blank? ? "None" : @user.location %></span>
+						<% end %>
 					</div>
 	            </div>
 	            <div class="control-group">
 					<%= f.label :url, { class: 'control-label' } %>
 					<div class="controls">
+						<% if can? :edit, :user %>
 						<a href="#" id="url" data-name="url" data-resource="user" data-pk="<%= params[:id]%>" data-url="<%= user_path %>" data-type="text"><%= @user.url %></a>
+						<% else %>
+							<span><%= @user.url.blank? ? "None" : @user.url %></span>
+						<% end %>
 					</div>
 	            </div>
 	            <div class="control-group">
 					<%= f.label :created_at, { class: 'control-label' } %>
 					<div class="controls">
-						<%= local_time(@user.created_at) %>
+						<span><%= local_time(@user.created_at) %></span>
 					</div>
 				</div>
 				<div class="control-group">
 					<%= f.label :last_sign_in_at, { class: 'control-label' } %>
 					<div class="controls">
-						<%= local_time(@user.last_sign_in_at) %>
+						<span><%= local_time(@user.last_sign_in_at) %></span>
+					</div>
+				</div>
+				<div class="control-group">
+					<%= f.label :roles, { class: 'control-label' } %>
+					<div class="controls">
+						<% if can? :edit, :user %>
+						<a href="#" id="roles" data-name="roles" data-resource="user" data-pk="<%= params[:id]%>" data-url="<%= user_path %>" data-type="checklist" data-value="<%= @user.roles.map.to_a.join(',') %>">
+						<% for role in @user.roles %>
+							<span><%= role.to_s.humanize %></span><br/>
+						<% end %>
+						</a>
+					<% else %>
+						<% for role in @user.roles %>
+							<span><%= role.to_s.humanize %></span><br/>
+						<% end %>
+					<% end %>
 					</div>
 				</div>
 			<% end %>

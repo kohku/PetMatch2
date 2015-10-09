@@ -1,4 +1,5 @@
 class PetBreedsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_pet_breed, only: [:show, :edit, :destroy, :update]
   # GET /pet-types/1/pet-breeds
   # GET /pet-types/1/pet-breeds.json
@@ -15,6 +16,10 @@ class PetBreedsController < ApplicationController
   # GET /pet-breeds/1/edit
   # GET /pet-breeds/1.json
   def show
+    respond_to do | format |
+      format.html #show.html.erb
+      format.json { render json: @pet_breed }
+    end
   end
 
   # GET /pet-types/1/pet-breeds/new
@@ -30,7 +35,6 @@ class PetBreedsController < ApplicationController
   end
 
   # POST /pet-types/1/pet-breed/new
-  # POST /pet-types/1/pet-breed/new.json
   def create
     pet_type = PetType.find(params[:pet_type_id])
     @pet_breed = pet_type.pet_breeds.create(pet_breed_params)

@@ -35,11 +35,15 @@
 			          <a href="<%= url_for pet_breed_path(pet_breed) %>" class="btn btn-default btn-small">
 			            <i class="icon-pencil"></i>Show
 			          </a>
-			          <a href="<%= url_for edit_pet_breed_path(pet_breed) %>" class="btn btn-default btn-small">
+			          <% if can? :edit, :pet_breed %>
+			          	<a href="<%= url_for edit_pet_breed_path(pet_breed) %>" class="btn btn-default btn-small">
 			            <i class="icon-pencil"></i>Edit
-			          </a>
-			          <%= link_to pet_breed, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-small" do %><i class="icon-remove"></i>Destroy
+			          	</a>
 			          <% end %>
+			          <% if can? :destroy, :pet_breed %>
+			          	<%= link_to pet_breed, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-small" do %><i class="icon-remove"></i>Destroy
+			          		<% end %>
+		          		<% end %>
 			        </td>
 			      </tr>
 			    <% end %>
@@ -53,7 +57,9 @@
 				<p class="text-info">There are no breeds for this pet type.</p>
 			<%end %>
 		</div>
+		<% if can? :new, :pet_breed %>
 		<%= link_to 'New breed', new_pet_type_pet_breed_path(@pet_type), :class => 'btn btn-default btn-small' %>
+		<% end %>
     	<%= link_to 'Back', pet_types_path, :class => 'btn btn-default btn-small' %>
     </div>
 </div>

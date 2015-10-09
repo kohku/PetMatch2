@@ -18,6 +18,11 @@ class PetTypesController < ApplicationController
   def show
     @per_page = params[:per_page] || PetBreed.per_page || 10
     @pet_breeds = @pet_type.pet_breeds.order('name ASC').paginate(per_page: @per_page, :page => params[:page])
+
+    respond_to do |format|
+      format.html #show.html.erb
+      format.json { render json: @pet_type }
+    end
   end
 
   # GET /pet-types/new

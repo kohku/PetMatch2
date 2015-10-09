@@ -14,6 +14,13 @@ class UsersController < ApplicationController
   def show
   end
 
+  # GET /admin/users/all_roles.json
+  def all_roles
+    respond_to do | format |
+      format.json { render json: User.valid_roles }
+    end
+  end
+
   def new
   end
 
@@ -52,6 +59,6 @@ class UsersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :location, :url)
+      params.require(:user).permit(:name, :location, :url, roles: [])
     end
 end
