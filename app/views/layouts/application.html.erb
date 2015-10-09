@@ -7,20 +7,41 @@
   <%= csrf_meta_tags %>
 </head>
 <body data-controller="<%= controller_name %>" data-action="<%= action_name %>">
+  <!--=== Top ===-->
   <div class="top">
     <div class="container">
       <div class="top-widget pull-right">
         <%= render "layouts/loginbar" %>
+      </div>
     </div>
   </div>
-
+  <!--/top-->
+  <!--=== End Top ===-->
+  <div id="flash">
   <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>">
-      <button type="button" class="close" data-dismiss="alert">×</button><strong><%= value %></strong></div>
+      <button type="button" class="close" data-dismiss="alert">×</button><strong><%= value %></strong>
     </div>
   <% end %>
+  </div>
 	
-<%= yield %>
+  <%= yield %>
+  <div class="row-fluid margin-bottom-30">
+  </div>
+  <!--=== Copyright ===-->
+  <div class="copyright">
+    <div class="container">
+      <div class="row-fluid">
+        <div class="span8">           
+                <p>2014 © Pet Match. Todos los Derechos Reservados. <a href="page_privacy.html">Política de privacidad</a> | <a href="page_terms.html">Términos y condiciones</a></p>
+        </div>
+        <div class="span4"> 
+        </div>
+      </div><!--/row-fluid-->
+    </div><!--/container--> 
+  </div>
+  <!--/copyright-->
+  <!--=== End Copyright ===-->
 
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <!--[if lt IE 9]>

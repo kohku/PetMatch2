@@ -6,25 +6,41 @@
 				<div class="control-group">
 					<%= f.label :email, { class: 'control-label' } %>
 					<div class="controls">
-						<%= f.text_field :email, { disabled: 'disabled'} %>
+						<%= f.text_field :email %>
 					</div>
 				</div>
 				<div class="control-group">
 					<%= f.label :name, { class: 'control-label' } %>
 					<div class="controls">
-						<a href="#" id="name" data-name="name" data-resource="user" data-pk="<%= params[:id]%>" data-url="<%= user_path %>" data-type="text"><%= !@user.name.blank? ? @user.name : "None" %></a>
+						<a href="#" id="name" data-name="name" data-resource="user" data-pk="<%= params[:id]%>" data-url="<%= user_path %>" data-type="text"><%= @user.name %></a>
 					</div>
 				</div>
 				<div class="control-group">
-					<label class="control-label">Input</label>
+					<%= f.label :location, { class: 'control-label' } %>
 					<div class="controls">
-						<div class="input-append">
-		                    <input id="appendedInput" type="text">
-		                    <span class="add-on"><i class="icon-edit"></i></span>
-		                </div>
-	                </div>
+						<a href="#" id="location" data-name="location" data-resource="user" data-pk="<%= params[:id]%>" data-url="<%= user_path %>" data-type="text"><%= @user.location %></a>
+					</div>
 	            </div>
+	            <div class="control-group">
+					<%= f.label :url, { class: 'control-label' } %>
+					<div class="controls">
+						<a href="#" id="url" data-name="url" data-resource="user" data-pk="<%= params[:id]%>" data-url="<%= user_path %>" data-type="text"><%= @user.url %></a>
+					</div>
+	            </div>
+	            <div class="control-group">
+					<%= f.label :created_at, { class: 'control-label' } %>
+					<div class="controls">
+						<%= local_time(@user.created_at) %>
+					</div>
+				</div>
+				<div class="control-group">
+					<%= f.label :last_sign_in_at, { class: 'control-label' } %>
+					<div class="controls">
+						<%= local_time(@user.last_sign_in_at) %>
+					</div>
+				</div>
 			<% end %>
 		</div>
+		<%= link_to 'Back', users_path, :class => 'btn btn-default btn-small' %>
     </div>
 </div>
