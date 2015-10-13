@@ -47,7 +47,9 @@ Rails.application.routes.draw do
     resources "pet-breeds", :controller => :pet_breeds, :as => :pet_breeds
   end
 
-  root 'pets#index'
+  resources :pages
+  
+  root 'pages#home'
 
   #get 'auth/:provider/callback', to: 'session#create'
 
