@@ -41,7 +41,11 @@ PETMATCH = {
 
 	// admin/users
 	users:  {
+
 		show: function(){
+			// action-specific code
+			console.log("Page-specific JavaScript on the users/show controller.");
+
 			var alert = '<div class="alert"><button type="button" class="close" data-dismiss="alert">×</button><strong>{0}</strong></div></div>';
 			var alert_error = '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button><strong>{0}</strong></div></div>';
 			var alert_success = '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">×</button><strong>{0}</strong></div></div>';
@@ -95,7 +99,16 @@ PETMATCH = {
 	},
 
 	pages: {
+		show: function(){
+			// action-specific code
+			console.log("Page-specific JavaScript on the pages/show controller.");
+			if (App) App.initSliders();
+			if (Index) Index.initParallaxSlider();
+		},
+
 		edit: function(){
+			// action-specific code
+			console.log("Page-specific JavaScript on the pages/edit controller.");
 			var alert = '<div class="alert"><button type="button" class="close" data-dismiss="alert">×</button><strong>{0}</strong></div></div>';
 			var alert_error = '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">×</button><strong>{0}</strong></div></div>';
 			var alert_success = '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">×</button><strong>{0}</strong></div></div>';
@@ -156,7 +169,7 @@ UTIL = {
 		var body = document.body,
 			controller = body.getAttribute("data-controller"),
 			action = body.getAttribute("data-action");
-
+		
 		UTIL.exec("common");
 		UTIL.exec(controller);
 		UTIL.exec(controller, action);

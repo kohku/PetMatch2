@@ -20,9 +20,15 @@ class PagesController < ApplicationController
 	end
 
 	def home
-		respond_to do |format|
-		  format.html #show.html.erb
-		  format.json { render json: @page }
+		@page = Page.friendly.find('home')
+
+		if @page
+			redirect_to page_path(@page)
+		else
+			respond_to do |format|
+			  	format.html #home.html.erb
+			  	format.json { render json: @page }
+			  end
 		end
 	end
 

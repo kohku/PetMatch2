@@ -1,1 +1,6 @@
+<% if @page %>
+<% content_for :title, @page.title %>
+<%= raw @page.content %>
+<% else %>
 You need to set up a new home.
+<% end %>

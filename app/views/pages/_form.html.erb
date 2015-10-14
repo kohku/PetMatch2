@@ -39,14 +39,15 @@
       <%= f.label :content, { class: 'control-label' } %>
       <div class="controls">
         <% if @page.new_record? %>
-        <%= f.text_field :content %>
+        <%= f.text_area :content %>
         <% elsif can? :edit, :page %>
-        <a href="#" id="content" data-name="content" data-resource="page" data-pk="<%= params[:id]%>" data-url="<%= page_path %>" data-type="text"><%= @page.content %></a>
+        <a href="#" id="content" data-name="content" data-resource="page" data-pk="<%= params[:id]%>" data-url="<%= page_path %>" data-type="textarea" data-rows="10" data-inputclass="input-xxlarge"><%= @page.content %></a>
         <% else %>
           <span><%= @page.content? || "Empty" %></span>
         <% end %>
       </div>
     </div>
-
-    <%= f.submit class: 'btn btn-default btn-small pull-right' %>
+    <% if @page.new_record? %>
+      <%= f.submit class: 'btn btn-default btn-small pull-right' %>
+    <% end %>
 <% end %>

@@ -7,7 +7,44 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Page.create(title: 'Help', slug: 'help', content: 'Help')
-Page.create(title: 'Home', slug: 'home', content: 'This is your home.')
+Page.create(title: 'Home', slug: 'home', content: 
+"<!--=== Slider ===-->
+<div class=\"slider-inner\">
+    <div id=\"da-slider\" class=\"da-slider\" style=\"background-position: 900% 0%;\">
+        <div class=\"da-slide da-slide-fromright da-slide-current\">
+            <h2><i>welcome to</i> <br> <i>pet</i><br> <i>match</i></h2>
+            <p><i>The first</i> <br> <i>matchkmaking site</i><br> <i>for pets</i>
+                <br><br> 
+            </p>
+            <div class=\"da-img\"><img src=\"/assets/images/slider/1.jpg\" alt=\"\"></div>
+        </div>
+        <div class=\"da-slide da-slide-toleft\">
+            <h2><i>¿tienes una</i> <br> <i>mascota</i> <br> <i>forever alone?</i></h2>
+            <p><i>¡No importa que clase de mascota tengas!</i> <br> <i>Publica su perfil... 
+¡Su otra mitad espera!.</i>
+                <br><br>  
+            </p>
+            <div class=\"da-img span6\">
+            	<div class=\"span6\">
+					<iframe src=\"http://player.vimeo.com/video/59125130\" width=\"100%\" height=\"320\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\"></iframe>
+ 				</div>
+            </div>
+        </div>
+        <div class=\"da-slide da-slide-toleft\">
+            <h2><i>encuentra</i> <br> <i>a su</i> <br> <i>media naranja</i></h2>
+            <p><i>¿Vas a seguir esperando? </i> <br> <i>¡Mejor ven a conocer a la pareja perfecta para tu mascota!.</i> <br> 
+                <br><br>    
+            </p>
+            <div class=\"da-img\"><img src=\"/assets/images/slider/6.jpg\" alt=\"\"></div>
+        </div>
+        <nav class=\"da-arrows\">
+            <span class=\"da-arrows-prev\"></span>
+            <span class=\"da-arrows-next\"></span>		
+        </nav>
+    <nav class=\"da-dots\"><span class=\"da-dots-current\"></span><span class=\"\"></span><span class=\"\"></span></nav></div><!--/da-slider-->
+</div>
+<!--/slider-->
+<!--=== End Slider ===-->")
 Page.create(title: 'Page Privacy', slug: 'privacy', content: 'Privacy')
 Page.create(title: 'Page Terms', slug: 'terms', content: 'Conditions of use')
 

@@ -34,8 +34,8 @@ Please feel free to use a different markup language if you do not plan to run
 - CRUD Interface for users [OK]
 - CanCan (Permissions to edit, etc.) [OK]
 - Pages [Ok]
-- Landing page
-	- Carrousel
+- Landing page 
+	- Carrousel [Ok]
 - Search
 - Breadcrumbs
 - Blog

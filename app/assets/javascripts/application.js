@@ -19,8 +19,12 @@
 //= require plugins/back-to-top
 //= require utils
 //= require app
+//= require index
 //= require pets.custom
 //= require global
 //= require local_time
 //= require plugins/bootstrap-editable/js/bootstrap-editable.min
-//= require_tree .
+//= require plugins/flexslider/js/jquery.flexslider-min
+//= require plugins/parallax-slider/js/modernizr
+//= require plugins/parallax-slider/js/jquery.cslider
+// require_tree .
