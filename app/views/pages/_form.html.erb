@@ -1,0 +1,52 @@
+<%= form_for @page, html: {class: 'form-horizontal'} do |f| %>
+
+    <% if @page.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@page.errors.count, "error") %> prohibited this page type from being saved:</h2>
+      <ul>
+      <% @page.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+    <% end %>
+
+	  <div class="control-group">
+      <%= f.label :title, { class: 'control-label' } %>
+      <div class="controls">
+        <% if @page.new_record? %>
+        <%= f.text_field :title %>
+        <% elsif can? :edit, :page %>
+        <a href="#" id="title" data-name="title" data-resource="page" data-pk="<%= params[:id]%>" data-url="<%= page_path %>" data-type="text"><%= @page.title %></a>
+        <% else %>
+          <span><%= @page.title? || "None" %></span>
+        <% end %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :slug, { class: 'control-label' } %>
+      <div class="controls">
+        <% if @page.new_record? %>
+        <%= f.text_field :slug %>
+        <% elsif can? :edit, :page %>
+        <a href="#" id="slug" data-name="slug" data-resource="page" data-pk="<%= params[:id]%>" data-url="<%= page_path %>" data-type="text"><%= @page.slug %></a>
+        <% else %>
+          <span><%= @page.slug? || "None" %></span>
+        <% end %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :content, { class: 'control-label' } %>
+      <div class="controls">
+        <% if @page.new_record? %>
+        <%= f.text_field :content %>
+        <% elsif can? :edit, :page %>
+        <a href="#" id="content" data-name="content" data-resource="page" data-pk="<%= params[:id]%>" data-url="<%= page_path %>" data-type="text"><%= @page.content %></a>
+        <% else %>
+          <span><%= @page.content? || "Empty" %></span>
+        <% end %>
+      </div>
+    </div>
+
+    <%= f.submit class: 'btn btn-default btn-small pull-right' %>
+<% end %>

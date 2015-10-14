@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>PetMatch</title>
+  <title><%= !yield(:title).to_s.blank? ? yield(:title) : "PetMatch" %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -33,7 +33,7 @@
     <div class="container">
       <div class="row-fluid">
         <div class="span8">           
-                <p>2015 © Pet Match. All rights reserved. <a href="page_privacy.html">Privacy</a> | <a href="page_terms.html">Conditions of use</a></p>
+                <p>2015 © Pet Match. All rights reserved. <a href="pages/privacy">Privacy</a> | <a href="page/terms">Conditions of use</a></p>
         </div>
         <div class="span4"> 
         </div>

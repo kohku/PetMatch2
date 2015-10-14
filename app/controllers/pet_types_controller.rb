@@ -56,7 +56,7 @@ class PetTypesController < ApplicationController
     respond_to do |format|
       if @pet_type.update(pet_params)
         format.html { redirect_to pet_types_path, notice: 'Pet was successfully updated.' }
-        format.json { render json: pet_type, status: :ok }
+        format.json { render json: @pet_type, status: :ok }
       else
         format.html { render :edit }
         format.json { render json: @pet_type.errors, status: :unprocessable_entity }

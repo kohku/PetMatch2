@@ -1,7 +1,54 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
-<% if current_user %>
-<ul>
-<li><%= current_user.name %></li>
-</ul>
-<% end %>
+<% content_for :title, "Pages Administration" %>
+<div class="container">
+    <div class="row-fluid">
+		<h3>Pages</h3>
+		<div class="custom_panel margin-bottom-10">
+			<% if !notice.blank? %>
+			<div class="alert alert-info"><button type="button" class="close" data-dismiss="alert">×</button><strong><%= notice %></strong></div>
+			<% end %>
+			<% if @pages.count > 0 %>
+			<table class="table table-striped">
+			    <thead>
+			      <tr>
+			        <th>Title</th>
+			        <th>Created date</th>
+			        <th>Last updated</th>
+			        <th></th>
+			      </tr>
+			    </thead>
+			    <tbody>
+			    <% @pages.each do |page| %>
+			      <tr>
+			        <td><a href="<%= url_for page_path(page) %>">
+			            <%= page.title %></a></td>
+			        <td><%= local_time(page.created_at) %></td>
+			        <td><%= local_time(page.updated_at) %></td>
+			        <td>
+			          
+			          <% if can? :edit, :page %>
+			          	<a href="<%= url_for edit_page_path(page) %>" class="btn btn-default btn-small">
+			            <i class="icon-pencil"></i>Edit
+			          	</a>
+			          <% end %>
+			          <% if can? :destroy, :page %>
+			          	<%= link_to page, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-small" do %><i class="icon-remove"></i>Destroy
+			          		<% end %>
+		          		<% end %>
+			        </td>
+			      </tr>
+			    <% end %>
+			    </tbody>
+			</table>
+			<%= will_paginate @pages, renderer: BootstrapPagination::Rails %>
+			<%= label_tag :per_page, 'Items per page' %>
+			<%= select_tag :per_page, options_for_select([10, 50, 100], params[:per_page].to_i),
+				:onchange => "if(this.value){window.location='?per_page='+this.value;}" %>
+			<% else %>
+				<p class="text-info">There are no pages for this pet type.</p>
+			<%end %>
+		</div>
+		<% if can? :new, :page %>
+		<%= link_to 'New page', new_page_path(@page), :class => 'btn btn-default btn-small' %>
+		<% end %>
+    </div>
+</div>

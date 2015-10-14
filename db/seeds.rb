@@ -5,6 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Page.create(title: 'Help', slug: 'help', content: 'Help')
+Page.create(title: 'Home', slug: 'home', content: 'This is your home.')
+Page.create(title: 'Page Privacy', slug: 'privacy', content: 'Privacy')
+Page.create(title: 'Page Terms', slug: 'terms', content: 'Conditions of use')
+
 dog = PetType.create(name: 'Dog', published: true)
 cat = PetType.create(name: 'Cat', published: true)
 bird = PetType.create(name: 'Bird', published: true)
