@@ -1,0 +1,50 @@
+<div class="header">               
+    <div class="container"> 
+        <!-- Logo -->       
+        <div class="logo">                                             
+            <a href="/">
+                <!--TransForm-->
+                <img id="logo-header" src="/assets/img/logo1-default.png" alt="Logo">
+            </a>
+        </div><!-- /logo -->        
+        <!-- Menu -->       
+        <div class="navbar">                                
+            <div class="navbar-inner">                                  
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a><!-- /nav-collapse -->                                  
+                <div class="nav-collapse collapse">                                     
+                    <ul class="nav top-2">
+                        <% if controller_name == 'pages' && action_name == 'show' && params[:id] == 'about' %>
+                        <li class="active"><a href="/pages/about">About<b class="caret"></b></a></li>
+                        <% else %>
+                        <li><a href="/pages/about">About<b class="caret-out"></b></a></li>
+                        <% end %>
+                        <% if controller_name == 'search' %>
+                        <li><a href="/search">Search<b class="caret"></b></a></li>
+                        <% else %>
+                        <li class="active"><a href="/search">Search<b class="caret-out"></b></a></li>
+                        <% end %>
+                        <% if controller_name == 'pages' && action_name == 'show' && params[:id] == 'plans' %>
+                        <li class="active"><a href="/pages/plans">Plans<b class="caret"></b></a></li>
+                        <% else %>
+                        <li><a href="/pages/plans">Plans<b class="caret-out"></b></a></li>
+                        <% end %>
+                        <% if controller_name == 'blog' %>
+                        <li class="active"><a href="/blog">Blog<b class="caret"></b></a></li>
+                        <% else %>
+                        <li><a href="/blog">Blog<b class="caret-out"></b></a></li>
+                        <% end %>
+                        <% if controller_name == 'pages' && action_name == 'show' && params[:id] == 'contact' %>
+                            <li class="active"><a href="/pages/contact">Contact<b class="caret"></b></a></li>
+                        <% else %>
+                            <li><a href="/pages/contact">Contact<b class="caret-out"></b></a></li>
+                        <% end %>            
+                    </ul>
+                </div><!-- /nav-collapse -->                                
+            </div><!-- /navbar-inner -->
+        </div><!-- /navbar -->                          
+    </div><!-- /container -->               
+</div><!--/header -->

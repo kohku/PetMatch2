@@ -1,15 +1,27 @@
-<ul class="loginbar">
-    <li><a href="/pages/help">Help</a></li>
-    <% if user_signed_in?  %>
-    <li class="devider">&nbsp;</li>
-    <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete, :class => "login-btn" %></li>
-    <% end 
-       if controller_name == 'sessions' && 'new'.casecmp(action_name).zero? %>
-    <li class="devider">&nbsp;</li>
-    <li><%= link_to "Sign up", new_user_registration_path, :class => "login-btn" %></li>
-    <% end 
-       if !user_signed_in? && controller_name != 'sessions' %>
-    <li class="devider">&nbsp;</li>
-    <li><%= link_to 'Login', new_user_session_path, :class => "login-btn" %></li>
-    <% end %>
-</ul>
+<div class="top">
+    <div class="container">
+      <div class="top-widget pull-right">
+        <ul class="loginbar">
+            <li><a href="/pages/help">Help</a></li>
+            <% if user_signed_in?  %>
+            <li class="devider">&nbsp;</li>
+            <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete, :class => "login-btn" %></li>
+            <% end 
+               if controller_name == 'sessions' && 'new'.casecmp(action_name).zero? %>
+            <li class="devider">&nbsp;</li>
+            <li><%= link_to "Sign up", new_user_registration_path, :class => "login-btn" %></li>
+            <% end 
+               if !user_signed_in? && controller_name != 'sessions' %>
+            <li class="devider">&nbsp;</li>
+            <li><%= link_to 'Login', new_user_session_path, :class => "login-btn" %></li>
+            <% end %>
+        </ul>
+        <ul class="social-icons">
+            <li><a href="http://www.facebook.com/thepetmatch" data-original-title="Facebook" class="social_facebook"></a></li>
+            <li><a href="http://www.twitter.com/pet_match" data-original-title="Twitter" class="social_twitter"></a></li>
+            <li><a href="#" data-original-title="Pinterest" class="social_pintrest"></a></li>
+        </ul>
+      </div><!-- /top-widget -->
+    </div><!-- /container -->
+</div><!--/top-->
+
