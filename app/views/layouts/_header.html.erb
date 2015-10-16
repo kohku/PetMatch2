@@ -17,31 +17,11 @@
                 </a><!-- /nav-collapse -->                                  
                 <div class="nav-collapse collapse">                                     
                     <ul class="nav top-2">
-                        <% if controller_name == 'pages' && action_name == 'show' && params[:id] == 'about' %>
-                        <li class="active"><a href="/pages/about">About<b class="caret"></b></a></li>
-                        <% else %>
-                        <li><a href="/pages/about">About<b class="caret-out"></b></a></li>
-                        <% end %>
-                        <% if controller_name == 'search' %>
-                        <li><a href="/search">Search<b class="caret"></b></a></li>
-                        <% else %>
-                        <li class="active"><a href="/search">Search<b class="caret-out"></b></a></li>
-                        <% end %>
-                        <% if controller_name == 'pages' && action_name == 'show' && params[:id] == 'plans' %>
-                        <li class="active"><a href="/pages/plans">Plans<b class="caret"></b></a></li>
-                        <% else %>
-                        <li><a href="/pages/plans">Plans<b class="caret-out"></b></a></li>
-                        <% end %>
-                        <% if controller_name == 'blog' %>
-                        <li class="active"><a href="/blog">Blog<b class="caret"></b></a></li>
-                        <% else %>
-                        <li><a href="/blog">Blog<b class="caret-out"></b></a></li>
-                        <% end %>
-                        <% if controller_name == 'pages' && action_name == 'show' && params[:id] == 'contact' %>
-                            <li class="active"><a href="/pages/contact">Contact<b class="caret"></b></a></li>
-                        <% else %>
-                            <li><a href="/pages/contact">Contact<b class="caret-out"></b></a></li>
-                        <% end %>            
+                        <li class="<%= 'active' unless params[:id] != 'about' || action_name != 'show' || controller_name != 'pages' %>"><a href="/pages/about">About<b class="caret<%= '-out' unless params[:id] == 'about' && action_name == 'show' && controller_name == 'pages' %>"></b></a></li>
+                        <li class="<%= 'active' unless controller_name != 'pets' || action_name != 'match'%>"><a href="<%= match_pets_path %>">Find a match<b class="caret<%= '-out' unless controller_name == 'pets' && action_name == 'match'%>"></b></a></li>
+                        <li class="<%= 'active' unless params[:id] != 'plans' || action_name != 'show' || controller_name != 'pages' %>"><a href="/pages/plans">Plans<b class="caret<%= '-out' unless params[:id] == 'plans' && action_name == 'show' && controller_name == 'pages' %>"></b></a></li>
+                        <li class="<%= 'active' unless controller_name != 'blog' %>"><a href="/blog">Blog<b class="caret<%= '-out' unless controller_name == 'blog' %>"></b></a></li>
+                        <li class="<%= 'active' unless params[:id] != 'contact' || action_name != 'show' || controller_name != 'pages' %>"><a href="/pages/contact">Contact<b class="caret<%= '-out' unless params[:id] == 'contact' && action_name == 'show' && controller_name == 'pages' %>"></b></a></li>
                     </ul>
                 </div><!-- /nav-collapse -->                                
             </div><!-- /navbar-inner -->

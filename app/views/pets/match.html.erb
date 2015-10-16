@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row-fluid margin-bottom-10">
+    <%= form_for results_pets_path, method: "post", html: { class: 'reg-page'} do %>
+        <h3>Find matches for your pet</h3>
+        <%= label_tag :pet_type_id, 'Pick up a type', data: { required: 'true' } %>
+        <%= select_tag :pet_type_id, options_from_collection_for_select( PetType.order(:name).select { | match | match.published }, :id, :name ), { id: 'pet_type_id', class: 'span12', prompt: "Please select" } %>
+        </select>
+        <%= label_tag :pet_breed_id, 'Pick up a breed' %>
+        <%= select_tag :pet_breed_id, nil, { id: 'pet_breed_id', class: 'span12', prompt: "Please select" } %>
+        <div class="radio">
+            <label>
+                <%= radio_button_tag :gender, "male" %>
+                Male
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <%= radio_button_tag :gender, "female" %>
+                Female
+            </label>
+        </div>
+        <%= submit_tag "Find", class: 'btn-u pull-right' %>
+        <div class="controls form-inline">
+            <br/>
+        </div>
+      <% end %>
+    </div><!--/row-fluid-->
+</div><!--/container-->

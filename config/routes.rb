@@ -39,7 +39,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :pets
+  resources :pets do
+    collection do 
+      get 'match'
+      post 'results'
+    end
+  end
 
   resources "pet-types", :controller => :pet_types, :as => :pet_types, shallow: true do
 
