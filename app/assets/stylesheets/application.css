@@ -10,10 +10,10 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *= require jquery-ui
- *= require plugins/bootstrap/bootstrap.min
+ *= require plugins/bootstrap/css/bootstrap.min
  *= require style.css
  *= require headers/header1.css
- *= require plugins/bootstrap/bootstrap-responsive.min
+ *= require plugins/bootstrap/css/bootstrap-responsive.min
  *= require font-awesome
  *= require style_responsive
  *= require plugins/flexslider/css/flexslider
