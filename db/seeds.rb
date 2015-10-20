@@ -6,21 +6,23 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Page.create(title: 'About', slug: 'about', content: 'About Pet Match')
+Page.create(title: 'Contact', slug: 'contact', content: 'Contact')
 Page.create(title: 'Help', slug: 'help', content: 'Help')
 Page.create(title: 'Home', slug: 'home', content: 
 '<!--=== Slider ===-->
 <div class="slider-inner">
     <div id="da-slider" class="da-slider" style="background-position: 900% 0%;">
         <div class="da-slide da-slide-fromright da-slide-current">
-            <h2><i>welcome to</i> <br> <i>pet</i><br/><i>match</i></h2>
+            <h2><i>welcome</i> <br> <i>to pet</i><br> <i>match</i></h2>
             <p><i>The first</i> <br> <i>matchkmaking site</i><br> <i>for pets</i>
                 <br><br> 
             </p>
             <div class="da-img"><img src="/assets/images/slider/1.jpg" alt=""></div>
         </div>
         <div class="da-slide da-slide-toleft">
-            <h2><i>Is your pet</i><br/><i>a forever</i><br/><i>alone?</i></h2>
-            <p><i>It doesn\'t matter what kind of pet you have!</i> <br> <i>Join us... you\'ll find a match for it.</i>
+            <h2><i>Is your</i> <br> <i>pet a</i> <br> <i>forever alone?</i></h2>
+            <p><i>It doesn\'t matter what kind of pet you have.</i> <br> 
                 <br><br>  
             </p>
             <div class="da-img span6">
@@ -30,8 +32,8 @@ Page.create(title: 'Home', slug: 'home', content:
             </div>
         </div>
         <div class="da-slide da-slide-toleft">
-            <h2><i>Find its</i><br/><i>other</i><br/><i>half</i></h2>
-            <p><i>Are you still waiting? </i> <br> <i>Be better and find the right fit for your pet!.</i> <br> 
+            <h2><i>Find</i> <br> <i>its</i> <br> <i>other half</i></h2>
+            <p><i>Don\'t wait and register it!</i> <br> <i>It makes finding the best match</i><br><i>for your pet easy.</i><br> 
                 <br><br>    
             </p>
             <div class="da-img"><img src="/assets/images/slider/6.jpg" alt=""></div>
@@ -46,6 +48,9 @@ Page.create(title: 'Home', slug: 'home', content:
 <!--=== End Slider ===-->')
 Page.create(title: 'Page Privacy', slug: 'privacy', content: 'Privacy')
 Page.create(title: 'Page Terms', slug: 'terms', content: 'Conditions of use')
+Page.create(title: 'Plans', slug: 'plans', content: 'Pet Match plans')
+
+User.create! :name => 'Daniel Cruz', :email => 'kohku@yahoo.com', :password => 'set4now&Later', :password_confirmation => 'set4now&Later', :roles => [:admin, :membership, :author]
 
 dog = PetType.create(name: 'Dog', published: true)
 cat = PetType.create(name: 'Cat', published: true)
