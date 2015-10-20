@@ -79,3 +79,6 @@ gem 'role_model'
 gem 'local_time'
 
 gem 'friendly_id', '~> 5.1.0'
+
+gem "gretel"
+
