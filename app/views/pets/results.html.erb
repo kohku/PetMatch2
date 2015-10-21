@@ -3,6 +3,7 @@
 	<div class="row-fluid">
 		<!-- Transform Thumbnail -->
 		<div class="headline"><h3>Match results</h3></div>
+		<% if !@matches.empty? %>
 		<ul class="thumbnails">
 			<% @matches.each do |match| %>
             <li class="span3">
@@ -17,6 +18,9 @@
             </li>
             <% end %>
         </ul>
+        <% else %>
+        <p>No records were found.</p>
+        <% end %>
         <!--/thumbnails-->
 	</div>
 </div>

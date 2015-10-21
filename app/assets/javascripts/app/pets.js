@@ -45,12 +45,13 @@ var petsModule = (function(){
 						$(petBreedId).empty().append(loading);
 					}
 				}).done(function(data){
+					debugger;
 					var breeds = $(petBreedId);
 					breeds.empty();
 					data.forEach(function(entry){
 						breeds.append('<option value="{0}">{1}</option>'.format(entry.id, entry.name));
 					});
-					if ($('{0} option').format(petBreedId).length > 0) {
+					if ($('{0} option'.format(petBreedId)).length > 0) {
 						breeds.prepend(placeholder);
 					} else {
 						breeds.prepend('<option value="" disabled selected>No breeds available.</option>');

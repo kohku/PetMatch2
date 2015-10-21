@@ -69,7 +69,7 @@ class PetsController < ApplicationController
   end
 
   def results
-    @matches = Pet.where(:pet_type_id => params[:pet_type_id], :pet_breed_id => params[:pet_breed_id], :gender => params[:gender])
+    @matches = Pet.match(params[:pet_type_id], params[:pet_breed_id], params[:gender])
   end
 
   private

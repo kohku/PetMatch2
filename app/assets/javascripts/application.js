@@ -20,7 +20,9 @@
 //= require utils
 //= require app
 //= require index
+//= require app/pages
 //= require app/pets
+//= require app/users
 //= require global
 //= require local_time
 //= require plugins/bootstrap-editable/js/bootstrap-editable.min

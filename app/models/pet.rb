@@ -7,4 +7,18 @@ class Pet < ActiveRecord::Base
 	#TODO: Validate date ranges
 	validates :birth_date, presence: true
 	mount_uploader :image, ImageUploader
+
+	def self.match(pet_type_id = nil, pet_breed_id = nil, gender = nil)
+		if (pet_type_id && pet_breed_id && gender)
+		 	return where(pet_type_id: pet_type_id, pet_breed_id: pet_breed_id, gender: gender)
+		elsif (pet_type_id && pet_breed_id && !gender)
+			return where(pet_type_id: pet_type_id, pet_breed_id: pet_breed_id)
+		elsif (pet_type_id && !pet_breed_id && gender)
+			return where(pet_type_id: pet_type_id, gender: gender)
+		elsif (pet_type_id && !pet_breed_id && !gender)
+			return where(pet_type_id: pet_type_id)
+		end
+
+		none
+	end
 end
