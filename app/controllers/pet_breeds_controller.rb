@@ -1,5 +1,5 @@
 class PetBreedsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
   before_action :set_pet_breed, only: [:show, :edit, :destroy, :update]
   # GET /pet-types/1/pet-breeds
   # GET /pet-types/1/pet-breeds.json

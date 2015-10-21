@@ -68,6 +68,10 @@ class PetsController < ApplicationController
   def match
   end
 
+  def results
+    @matches = Pet.where(:pet_type_id => params[:pet_type_id], :pet_breed_id => params[:pet_breed_id], :gender => params[:gender])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pet

@@ -18,26 +18,7 @@ PETMATCH = {
 	},
 
 	// pets controller
-	pets: {
-		init: function(){
-			// controller-wide code
-			console.log("Controller-specific JavaScript on the pets controller.");
-		},
-
-		new: function(){
-			// action-specific code
-			console.log("Page-specific JavaScript on the pets/new controller.");
-
-			PETTYPES.call.loader();
-		},
-
-		edit: function(){
-			// action-specific code
-			console.log("Page-specific JavaScript on the pets/edit controller.");
-
-			PETTYPES.call.loader();
-		}
-	},
+	pets: petsModule,
 
 	// admin/users
 	users:  {
