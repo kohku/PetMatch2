@@ -14,6 +14,25 @@ PETMATCH = {
 		                dateFormat: 'yy-mm-dd'
             		});
     		}
+
+    		// register for flash broadcasting.
+    		$('#flash').on('broadcast', function(event, flash){
+				var alertTemplate = '<div class="alert {0}"><button type="button" class="close" data-dismiss="alert">×</button><strong>{1}</strong></div></div>';
+    			switch(flash.type){
+    				case 'error':
+    					$(this).append(alertTemplate.format('alert-error', flash.message));
+    					break;
+    				case 'success':
+    					$(this).append(alertTemplate.format('alert-success', flash.message));
+    					break;
+    				case 'info':
+    					$(this).append(alertTemplate.format('alert-info', flash.message));
+    					break;
+    				default:
+    					$(this).append(alertTemplate.format('', flash.message));
+    					break;
+    			}
+    		});
 		}
 	},
 

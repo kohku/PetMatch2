@@ -36,10 +36,10 @@ var pagesModule = (function(){
 				},
 				error: function(response, newValue){
 					if (response.status === 500){
-						('#flash').append(alert_error.format('Service unavailable. Please try later.'));
+						$('#flash').append(alert_error.format('Service unavailable. Please try later.'));
 					}
 					else{
-						('#flash').append(alert_error.format(response.responseText));
+						$('#flash').append(alert_error.format(response.responseText));
 					}
 				}
 			});
