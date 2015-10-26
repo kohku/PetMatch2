@@ -42,8 +42,8 @@
         <%= f.attachment_field :profile_image, direct: true %>
     </div>
     <%= f.label :notes, 'Additional notes' %>
-    <%= #f.text_field :notes, { class: "span12", placeholder: "Contests, pedigree, trained..." } %>
-    <%= #image_tag attachment_url(@pet, :profile_image) %>
+    <%= f.text_field :notes, { class: "span12", placeholder: "Contests, pedigree, trained..." } %>
+    <%= image_tag attachment_url(@pet, :profile_image) %>
     <%= f.submit value: "Register", class: 'btn-u pull-right' %>
 
     <hr />
