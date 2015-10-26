@@ -74,6 +74,26 @@ var petsModule = (function(){
 			console.log("Page-specific JavaScript on the pets/edit controller.");
 
 			categorizePets('#pet_type', '#pet_breed');
+
+			$(document).on("upload:start", "form", function(e){
+				console.log("upload:start");
+			});
+
+			$(document).on("upload:complete", "form", function(e){
+				console.log("upload:complete");
+			});
+
+			$(document).on("upload:progress", "form", function(e){
+				console.log("upload:progress");
+			});
+
+			$(document).on("upload:success", "form", function(e){
+				console.log("upload:success");
+			});
+
+			$(document).on("upload:failure", "form", function(e){
+				console.log("upload:failure");
+			});
 		},
 		match: function(){
 			// action-specific code

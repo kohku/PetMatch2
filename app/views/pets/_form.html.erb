@@ -33,15 +33,19 @@
             Female
         </label>
     </div>
+    <div class="controls">
+        <%= f.label :image %>
+        <%= attachment_image_tag @pet, :profile_image, :fill, 156, 98.5 %>
+    </div>
+    <div class="controls">
+        <%= f.label :profile_image, "Profile Images" %>
+        <%= f.attachment_field :profile_image, direct: true %>
+    </div>
     <%= f.label :notes, 'Additional notes' %>
     <%= f.text_field :notes, { class: "span12", placeholder: "Contests, pedigree, trained..." } %>
-    <%= image_tag (@pet.image_url) if @pet.image? %>
-    <%= f.file_field :image %>
-    <%= f.hidden_field :image_cache %>
+    <%= image_tag attachment_url(@pet, :profile_image) %>
     <%= f.submit value: "Register", class: 'btn-u pull-right' %>
-    <div class="controls form-inline">
-        <br/>
-    </div>
+
     <hr />
     <p>Are you already registered? Click <a href="page_login.html" class="color-green">here</a> to login to your account.</p>
   <% end %>

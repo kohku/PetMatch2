@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151013195219) do
+ActiveRecord::Schema.define(version: 20151026162146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,17 +71,23 @@ ActiveRecord::Schema.define(version: 20151013195219) do
     t.boolean  "published"
     t.datetime "birth_date"
     t.string   "gender"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.integer  "pet_type_id"
     t.integer  "pet_breed_id"
     t.string   "description"
     t.string   "notes"
-    t.string   "image"
+    t.string   "profile_image_id"
   end
 
   add_index "pets", ["pet_breed_id"], name: "index_pets_on_pet_breed_id", using: :btree
   add_index "pets", ["pet_type_id"], name: "index_pets_on_pet_type_id", using: :btree
+
+  create_table "refile_attachments", force: :cascade do |t|
+    t.string "namespace", null: false
+  end
+
+  add_index "refile_attachments", ["namespace"], name: "index_refile_attachments_on_namespace", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

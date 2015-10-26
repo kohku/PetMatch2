@@ -4,6 +4,6 @@ class AddRolesMaskToUser < ActiveRecord::Migration
   end
 
   def down
-  	remove_colum :users, :roles_mask
+  	remove_column :users, :roles_mask
   end
 end

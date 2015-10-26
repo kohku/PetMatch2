@@ -29,4 +29,5 @@
 //= require plugins/flexslider/js/jquery.flexslider-min
 //= require plugins/parallax-slider/js/modernizr
 //= require plugins/parallax-slider/js/jquery.cslider
+//= require refile
 // require_tree .

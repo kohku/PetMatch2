@@ -9,11 +9,13 @@
             <li class="span3">
                 <div class="thumbnail-style thumbnail-kenburn">
                     <div class="thumbnail-img">
-                        <div class="overflow-hidden"><img src="assets/img/carousel/9.jpg" alt=""></div>
-                        <a class="btn-more hover-effect" href="#">read more +</a>					
+                        <div class="overflow-hidden">
+                            <%= attachment_image_tag match, :profile_image, :fill, 156, 98.5 %></div>
+                        <a class="btn-more hover-effect" href="<%= pet_path(match) %>"><%= match.name %> +</a>					
                     </div>
-                    <h3><a href="#"><%= match.name %></a></h3>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem.</p>
+                    <h3><%= link_to match.pet_breed.name, pet_path(match) %></h3>
+                    <p><%= match.description %></p>
+                    <p><%= time_ago_in_words(match.birth_date) %></p>
                 </div>
             </li>
             <% end %>

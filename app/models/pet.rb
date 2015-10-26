@@ -6,7 +6,8 @@ class Pet < ActiveRecord::Base
 	validates :description, presence: true, length: { minimum: 2 }
 	#TODO: Validate date ranges
 	validates :birth_date, presence: true
-	mount_uploader :image, ImageUploader
+	#mount_uploader :image, ImageUploader
+	attachment :profile_image, type: :image
 
 	def self.match(pet_type_id = nil, pet_breed_id = nil, gender = nil)
 		if (pet_type_id && pet_breed_id && gender)

@@ -67,7 +67,9 @@ gem 'will_paginate-bootstrap', '0.2.5'
 
 gem 'jquery-ui-rails'
 
-gem 'carrierwave'
+gem "refile", require: "refile/rails", github: "refile/refile"
+gem "refile-mini_magick"
+gem 'refile-postgres'
 
 gem 'devise'
 gem 'omniauth'

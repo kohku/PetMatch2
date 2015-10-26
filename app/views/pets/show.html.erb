@@ -1,24 +1,50 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @pet.name %>
-</p>
-
-<p>
-  <strong>Published:</strong>
-  <%= @pet.published %>
-</p>
-
-<p>
-  <strong>Birth date:</strong>
-  <%= @pet.birth_date %>
-</p>
-
-<p>
-  <strong>Gender:</strong>
-  <%= @pet.gender %>
-</p>
-
-<%= link_to 'Edit', edit_pet_path(@pet) %> |
-<%= link_to 'Back', pets_path %>
+<div class="margin-bottom-30"></div>
+<div class="container">
+	<div class="row-fluid">
+		<%= form_for @pet, html: {multipart: true } do |f| %>
+  <% if @pet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
+      <ul>
+      <% @pet.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <h3 class="color-green"><%= @pet.name %></h3>
+    <%= attachment_image_tag @pet, :profile_image %>
+    <%= f.label :name, data: { required: 'true' } %>
+    <%= f.text_field :name, class: 'span12' %>
+    <%= f.label :pet_type_id, 'Pick up a type', data: { required: 'true' } %>
+    <%= f.collection_select :pet_type_id, PetType.order(:name).select { | match | match.published }, :id, :name, { prompt: true }, { id: 'pet_type', class: 'span12' } %>
+    </select>
+    <%= f.label :pet_breed_id, 'Pick up a breed' %>
+    <%= f.collection_select :pet_breed_id, PetBreed.order(:name).select { | match | match.pet_type_id == @pet.pet_type_id }, :id, :name, { prompt: true }, { id: 'pet_breed', class: 'span12' } %>
+    <%= f.label :name, 'Brief description', data: { required: 'true' } %>
+    <%= f.text_field :description, class: 'span12' %>
+    <%= f.label :birth_date, 'Birth date', data: { required: 'true' } %>
+    <%= f.date_field :birth_date, class: 'span12' %>
+    <div class="radio">
+        <label>
+            <%= f.radio_button :gender, "male" %>
+            Male
+        </label>
+    </div>
+    <div class="radio">
+        <label>
+            <%= f.radio_button :gender, "female" %>
+            Female
+        </label>
+    </div>
+    <%= f.label :notes, 'Additional notes' %>
+    <%= f.text_field :notes, { class: "span12", placeholder: "Contests, pedigree, trained..." } %>
+    <%= f.submit value: "Register", class: 'btn-u pull-right' %>
+    <div class="controls form-inline">
+        <br/>
+    </div>
+    <hr />
+    <p>Are you already registered? Click <a href="page_login.html" class="color-green">here</a> to login to your account.</p>
+  <% end %>
+  	</div>
+</div>
