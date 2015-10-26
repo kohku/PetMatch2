@@ -67,7 +67,7 @@ gem 'will_paginate-bootstrap', '0.2.5'
 
 gem 'jquery-ui-rails'
 
-gem "refile", require: "refile/rails", github: "refile/refile"
+gem "refile", require: "refile/rails"
 gem "refile-mini_magick"
 gem 'refile-postgres'
 
