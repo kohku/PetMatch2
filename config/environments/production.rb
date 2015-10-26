@@ -1,5 +1,3 @@
-ruby ENV['CUSTOM_RUBY_VERSION'] || '2.1.7'
-
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
