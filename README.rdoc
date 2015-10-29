@@ -36,8 +36,8 @@ Please feel free to use a different markup language if you do not plan to run
 - Pages [Ok]
 - Landing page 
 	- Carrousel [Ok]
-- Search
-- Breadcrumbs
+- Search [OK]
+- Breadcrumbs [Ok]
 - Blog
 - Contact
 	- Latest posts
@@ -46,3 +46,4 @@ Improvements
 - Lock/unlock users
 - Users: email confirmations, change password.
 - Html editor for pages
+- Add short title for breadcrumbs

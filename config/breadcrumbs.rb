@@ -2,6 +2,15 @@ crumb :root do
   link "Home", root_path
 end
 
+crumb :pages do
+   link "Pages", root_path
+end
+
+crumb :page do | page |
+	link page.title, page
+	parent :pages
+end
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end

@@ -1,2 +1,5 @@
 <% content_for :title, @page.title %>
+<% if !current_page?("/pages/home") %>
+	<% breadcrumb :page, @page %>
+<% end %>
 <%= raw @page.content %>

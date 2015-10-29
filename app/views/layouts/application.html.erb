@@ -13,6 +13,28 @@
   <!--=== Header ===-->
   <%= render "layouts/header" %>
   <!--=== End Header ===-->
+  <!--=== Breadcrumbs ===-->
+  <% breadcrumbs do |links| %>
+    <% if links.any? %>
+    <div class="breadcrumbs margin-bottom-30">
+      <div class="container">
+        <h1 class="color-green pull-left"><%= yield(:title) %></h1>
+        <ul class="pull-right breadcrumb">
+        <% links.each do |link| %>
+          <li>
+            <%= link_to link.text, link.url, class: (link.current? ? "active" : nil) %>
+            <% if link != links.last %>
+              <span class="divider">/</span>
+            <% end %>
+          </li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+    <!--/container-->
+    <% end %>
+  <!--/breadcrumbs-->
+  <% end %>
   <div id="flash">
   <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>">
