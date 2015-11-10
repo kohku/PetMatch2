@@ -1,4 +1,5 @@
 class PetsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
   before_action :set_pet, only: [:show, :edit, :update, :destroy]
 
   # GET /pets
@@ -68,8 +69,18 @@ class PetsController < ApplicationController
   def match
   end
 
+  # POST /pets/results
   def results
     @matches = Pet.match(params[:pet_type_id], params[:pet_breed_id], params[:gender])
+  end
+
+  # GET /pets/newest.json
+  def newest
+    @newest = result = Pet.all.order("created_at desc").limit(4)
+
+    respond_to do | format |
+      format.json { render json: @newest}
+    end
   end
 
   private

@@ -30,4 +30,5 @@
 //= require plugins/parallax-slider/js/modernizr
 //= require plugins/parallax-slider/js/jquery.cslider
 //= require refile
+//= require mustache.min
 // require_tree .

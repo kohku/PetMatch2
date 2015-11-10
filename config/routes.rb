@@ -43,6 +43,7 @@ Rails.application.routes.draw do
     collection do 
       get 'match'
       post 'results'
+      get 'newest'
     end
   end
 

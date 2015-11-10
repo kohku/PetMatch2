@@ -45,7 +45,23 @@ Page.create(title: 'Home', slug: 'home', content:
     <nav class="da-dots"><span class="da-dots-current"></span><span class=""></span><span class=""></span></nav></div><!--/da-slider-->
 </div>
 <!--/slider-->
-<!--=== End Slider ===-->')
+<!--=== End Slider ===-->
+<div class="row-fluid margin-bottom-30"></div>
+<!--=== Purchase Block ===-->
+<div class="row-fluid purchase margin-bottom-30">
+    <div class="container">
+        <div class="span9">
+            <span>Register your pet and find its other half ❤.</span>
+            <p>Your pet is always there for you.</p>
+        </div>
+        <a href="/account/login" class="btn-buy hover-effect">Register it</a>
+    </div>
+</div><!--/row-fluid-->
+<!-- End Purchase Block -->
+<!--=== New Members ===-->
+<div id="new_members" class="container">
+</div>
+<!--=== End New Members ===-->')
 Page.create(title: 'Page Privacy', slug: 'privacy', content: 'Privacy')
 Page.create(title: 'Page Terms', slug: 'terms', content: 'Conditions of use')
 Page.create(title: 'Plans', slug: 'plans', content: 'Pet Match plans')
