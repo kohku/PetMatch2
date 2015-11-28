@@ -61,7 +61,18 @@ Page.create(title: 'Home', slug: 'home', content:
 <!--=== New Members ===-->
 <div id="new_members" class="container">
 </div>
-<!--=== End New Members ===-->')
+<!--=== End New Members ===-->
+<!-- Information Blokcs -->
+<div class="row-fluid purchase margin-bottom-30">
+    <div class="container">
+        <blockquote>
+            <p>"I\'ve always were looking for a match for my pet and I love this web site. It\'s awesome!".</p>
+            <small>Daniel Cruz</small>
+        </blockquote>
+    </div>
+</div>
+<div class="row-fluid margin-bottom-30">
+</div>')
 Page.create(title: 'Page Privacy', slug: 'privacy', content: 'Privacy')
 Page.create(title: 'Page Terms', slug: 'terms', content: 'Conditions of use')
 Page.create(title: 'Plans', slug: 'plans', content: 'Pet Match plans')
